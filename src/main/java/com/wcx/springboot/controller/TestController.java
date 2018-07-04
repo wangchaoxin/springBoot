@@ -1,18 +1,25 @@
 package com.wcx.springboot.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@EnableAutoConfiguration
 public class TestController {
     @RequestMapping("/test")
-    public String test() {
+    String test() {
         return "hello world";
     }
+
     //redirect
     @RequestMapping("/redirect")
-    public String redirect() {
+    String redirect() {
         return "redirect:/test";
     }
-    //add a commit
+
+    public static void main(String[] args) {
+        SpringApplication.run(TestController.class, args);
+    }
 }
