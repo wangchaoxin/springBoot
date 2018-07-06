@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 public class Configuration {
     @Value("${wcx.name}")
     public String name;
-
     public String getName() {
         return name;
     }

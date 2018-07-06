@@ -1,4 +1,5 @@
 buildscript {
+    //设置外部属性，$springBootVersion访问属性
 	ext {
 		springBootVersion = '2.0.3.RELEASE'
 	}
@@ -6,6 +7,7 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
+        //打成jar包的插件
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
@@ -22,6 +24,8 @@ sourceCompatibility = 1.8
 repositories {
 	mavenCentral()
 }
+//定义任务
+task first << { println "first" }
 
 
 dependencies {
