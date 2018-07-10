@@ -34,7 +34,7 @@ dependencies {
           /*  {
 		exclude group :'com.fasterxml.jackson.core'
 	}*/
-	//指定依赖某一版本，默认依赖最近的版本
+	//指定依赖某一版本，默认依赖最近的版本,spring boot会自动选择依赖的版本
 	// compile("com.fasterxml.jackson.core:jackson-databind:2.4.3")
 //	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
