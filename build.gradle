@@ -1,42 +1,94 @@
 buildscript {
-    //设置外部属性，$springBootVersion访问属性
-	ext {
-		springBootVersion = '2.0.3.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
+    //在Gradle里，在configurations下排除该起步依赖是最简单的办法：
+    /*configurations {
+        all*.exclude group: 'org.springframework.boot',
+                module: 'spring-boot-starter-logging'
+    }*/
+
+    /**设置外部属性，$springBootVersion访问属性*/
+    ext {
+        springBootVersion = '2.0.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
         //打成jar包的插件
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
-apply plugin: 'java'
+apply plugin: 'java'    /**构建jar的插件，默认去src/main/java中去找文件*/
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+//apply plugin: 'war'     /**引入war插件，war插件会自动引入jar插件*/
+//apply plugin: 'jetty'   /**引入jetty插件,运行gradle jettyRun会自动启动*/
 
+/**自定义jetty插件*/
+/*jettyRun{
+    httpPort=80
+    contextPath='todo'
+}*/
 group = 'com.wcx.springboot'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
-//定义任务
-task first << { println "first" }
+//修改项目属性，定义jar版本
+version 0.1
+//修改插件属性
+jar {
+    manifest {
+        attributes 'MainClass': 'com.wcx.springboot.demo.DemoApplication'
+    }
+}
+/**
+ * 改变默认项目输出目录
+ */
+/*
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']  //设置默认的源码目录为src
+        }
+        test {
+            java {
+                srcDirs = ['test']  //设置默认的测试目录为test
+            }
+        }
+    }
+}
+*/
 
+/**改变项目输出路径到out目录*/
+//buildDir = 'out'
 
+/**修改war插件默认配置*/
+/*war{
+    from 'static'  *//**css和jsp文件从static文件夹中打包*//*
+}
+webAppDirName='webFiles' *//**web应用源代码目录*/
+
+/**生成gradle包装器,执行gradle wrapper生成gradlew文件，执行./gradlew进行编译*/
+task wrapper(type:Wrapper){
+    gradleVersion='4.0'
+}
 dependencies {
-	//排除依赖
-	compile('org.springframework.boot:spring-boot-starter-web')
-          /*  {
-		exclude group :'com.fasterxml.jackson.core'
-	}*/
-	//指定依赖某一版本，默认依赖最近的版本,spring boot会自动选择依赖的版本
-	// compile("com.fasterxml.jackson.core:jackson-databind:2.4.3")
-//	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    //排除依赖
+    compile('org.springframework.boot:spring-boot-starter-web')
+    /*  {
+          exclude group :'com.fasterxml.jackson.core'
+        }*/
+    /**在编译时需要，由运行时提供*/
+//    providedCompile('javax:servlet:servlet-api:2.5')
+
+    /**指定依赖某一版本，默认依赖最近的版本,spring boot会自动选择依赖的版本
+     * runtime：编译时不需要，运行时打包到war文件中*/
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+
+    compile("org.springframework.boot:spring-boot-devtools")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
