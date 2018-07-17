@@ -1,9 +1,4 @@
 buildscript {
-    //在Gradle里，在configurations下排除该起步依赖是最简单的办法：
-    /*configurations {
-        all*.exclude group: 'org.springframework.boot',
-                module: 'spring-boot-starter-logging'
-    }*/
 
     /**设置外部属性，$springBootVersion访问属性*/
     ext {
@@ -17,6 +12,10 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
+//在Gradle里，在configurations下排除该起步依赖是最简单的办法：
+/*configurations {
+    all*.exclude group:'org.apache.logging.log4j', module: 'log4j-to-slf4j'
+}*/
 
 apply plugin: 'java'    /**构建jar的插件，默认去src/main/java中去找文件*/
 apply plugin: 'eclipse'
@@ -25,11 +24,6 @@ apply plugin: 'io.spring.dependency-management'
 //apply plugin: 'war'     /**引入war插件，war插件会自动引入jar插件*/
 //apply plugin: 'jetty'   /**引入jetty插件,运行gradle jettyRun会自动启动*/
 
-/**自定义jetty插件*/
-/*jettyRun{
-    httpPort=80
-    contextPath='todo'
-}*/
 group = 'com.wcx.springboot'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -37,14 +31,41 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
 }
+
 //修改项目属性，定义jar版本
 version 0.1
+
 //修改插件属性
 jar {
     manifest {
         attributes 'MainClass': 'com.wcx.springboot.demo.DemoApplication'
     }
 }
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0'
+}
+dependencies {
+    /**log4j*/
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
+
+    //排除依赖
+    compile('org.springframework.boot:spring-boot-starter') {
+        exclude module: 'spring-boot-starter-logging'
+    }
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
+    /**在编译时需要，由运行时提供*/
+    //providedCompile('javax:servlet:servlet-api:2.5')
+
+    /**指定依赖某一版本，默认依赖最近的版本,spring boot会自动选择依赖的版本
+     * runtime：编译时不需要，运行时打包到war文件中*/
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile("org.springframework.boot:spring-boot-devtools")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
 /**
  * 改变默认项目输出目录
  */
@@ -73,22 +94,4 @@ sourceSets {
 webAppDirName='webFiles' *//**web应用源代码目录*/
 
 /**生成gradle包装器,执行gradle wrapper生成gradlew文件，执行./gradlew进行编译*/
-task wrapper(type:Wrapper){
-    gradleVersion='4.0'
-}
-dependencies {
-    //排除依赖
-    compile('org.springframework.boot:spring-boot-starter-web')
-    /*  {
-          exclude group :'com.fasterxml.jackson.core'
-        }*/
-    /**在编译时需要，由运行时提供*/
-//    providedCompile('javax:servlet:servlet-api:2.5')
 
-    /**指定依赖某一版本，默认依赖最近的版本,spring boot会自动选择依赖的版本
-     * runtime：编译时不需要，运行时打包到war文件中*/
-    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-
-    compile("org.springframework.boot:spring-boot-devtools")
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-}
