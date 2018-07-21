@@ -3,11 +3,8 @@ package com.wcx.springboot.demo.configure;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-/**
- * 将属性文件注入进实体中
- */
 @Component
-@ConfigurationProperties(prefix = "my.test")
+@ConfigurationProperties(prefix = "my.test")  //注入my.test前缀的属性
 public class ProfileConfigure {
     private String name;
 

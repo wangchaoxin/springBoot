@@ -19,4 +19,12 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
+    public User() {
+
+    }
+    public User(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

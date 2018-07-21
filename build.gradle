@@ -46,16 +46,15 @@ task wrapper(type: Wrapper) {
 }
 dependencies {
     /**log4j*/
-    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
+//    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
+//    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
 
     //排除依赖
     compile('org.springframework.boot:spring-boot-starter') {
-        exclude module: 'spring-boot-starter-logging'
+//        exclude module: 'spring-boot-starter-logging'
     }
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
-    compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
+
     /**在编译时需要，由运行时提供*/
     //providedCompile('javax:servlet:servlet-api:2.5')
 
@@ -64,6 +63,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile("org.springframework.boot:spring-boot-devtools")
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile ("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 /**

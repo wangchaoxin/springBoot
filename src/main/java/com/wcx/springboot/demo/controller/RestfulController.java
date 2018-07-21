@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController  //返回Json格式数据
 @EnableAutoConfiguration   //该注解会自动引入一些包,如果依赖web-starter,会自动引入tomcat
-public class JsonController {
+public class RestfulController {
     private static final Logger logger = LogManager.getLogger();
 
     @Autowired

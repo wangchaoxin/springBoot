@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * 如果配置了@componentScan ，会自动扫描Configuration中配置的bean
  */
 @Configuration
-public class ConfigureFactory {
+public class CommonBeanFactory {
     @Bean
     UserService getUserService() {
         return new UserServiceImpl();
