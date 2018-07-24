@@ -12,17 +12,12 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
-//在Gradle里，在configurations下排除该起步依赖是最简单的办法：
-/*configurations {
-    all*.exclude group:'org.apache.logging.log4j', module: 'log4j-to-slf4j'
-}*/
 
 apply plugin: 'java'    /**构建jar的插件，默认去src/main/java中去找文件*/
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 //apply plugin: 'war'     /**引入war插件，war插件会自动引入jar插件*/
-//apply plugin: 'jetty'   /**引入jetty插件,运行gradle jettyRun会自动启动*/
 
 group = 'com.wcx.springboot'
 version = '0.0.1-SNAPSHOT'
@@ -31,6 +26,16 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
 }
+
+task zip(type: Zip, group: "Archive", description: "Archives sources in a zip file") {
+    from "classes"
+    setArchiveName "basic-demo-1.0.zip"
+}
+task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
+    from "src"
+    into "dest"
+}
+
 
 //修改项目属性，定义jar版本
 version 0.1
@@ -70,6 +75,9 @@ dependencies {
     compile "org.springframework.boot:spring-boot-devtools"
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
+    compile 'org.springframework.boot:spring-boot-starter-amqp'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+
 }
 
 /**
