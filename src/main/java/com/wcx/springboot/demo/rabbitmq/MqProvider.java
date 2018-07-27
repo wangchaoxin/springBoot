@@ -16,4 +16,12 @@ public class MqProvider {
         this.amqpAdmin = amqpAdmin;
         this.amqpTemplate = amqpTemplate;
     }
+
+    public AmqpAdmin getAmqpAdmin() {
+        return amqpAdmin;
+    }
+
+    public AmqpTemplate getAmqpTemplate() {
+        return amqpTemplate;
+    }
 }
