@@ -27,39 +27,52 @@ repositories {
     mavenCentral()
 }
 
-task zip(type: Zip, group: "Archive", description: "Archives sources in a zip file") {
-    from "classes"
-    setArchiveName "basic-demo-1.0.zip"
-}
-task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
-    from "src"
-    into "dest"
-}
-
-
 //修改项目属性，定义jar版本
-version 0.1
-
-//修改插件属性
+version = 0.1
+//修改插件属性,设置启动类，可以直接通过java -jar  a.jar 启动程序
 jar {
     manifest {
         attributes 'MainClass': 'com.wcx.springboot.demo.DemoApplication'
     }
 }
+/***************Task-start********************/
+task zip(type: Zip) {
+    from('build/libs') {
+        include '*.jar'
+    }
+    from '$rootDir/config'
+}
+build.dependsOn(zip)
+task printProperties() {
+    println("buildDir:" + buildDir+",projectDir:"+projectDir+",rootDir:"+rootDir)
+}
+/*copy task*/
+task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
+    from "src"
+    into "dest"
+}
+/**生成gradle包装器,执行gradle wrapper生成gradlew文件，执行./gradlew进行编译*/
 task wrapper(type: Wrapper) {
     gradleVersion = '4.0'
 }
-dependencies {
-    /**log4j*/
-//    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
-//    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
+task first << {
+    println("first")
+}
+/**访问gradle.properties中的属性*/
+task second {
+    doLast {
+        println("My name is $my_name")
+    }
+}
+second.dependsOn("first")  /**依赖任务*/
+/***************Task-end********************/
 
+dependencies {
     //排除依赖
     compile('org.springframework.boot:spring-boot-starter') {
-//        exclude module: 'spring-boot-starter-logging'
+        //        exclude module: 'spring-boot-starter-logging'
     }
     compile('org.springframework.boot:spring-boot-starter-web')
-
     /**在编译时需要，由运行时提供*/
     //providedCompile('javax:servlet:servlet-api:2.5')
 
@@ -70,7 +83,7 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
     /**加此配置，解决ConfigurationProperties注解无效*/
-    compile ("org.springframework.boot:spring-boot-configuration-processor")
+    compile("org.springframework.boot:spring-boot-configuration-processor")
     /**springboot开发者工具，classpath下文件改动会自动重启*/
     compile "org.springframework.boot:spring-boot-devtools"
     compile 'org.springframework.boot:spring-boot-starter-actuator'
@@ -101,11 +114,5 @@ sourceSets {
 /**改变项目输出路径到out目录*/
 //buildDir = 'out'
 
-/**修改war插件默认配置*/
-/*war{
-    from 'static'  *//**css和jsp文件从static文件夹中打包*//*
-}
-webAppDirName='webFiles' *//**web应用源代码目录*/
 
-/**生成gradle包装器,执行gradle wrapper生成gradlew文件，执行./gradlew进行编译*/
 

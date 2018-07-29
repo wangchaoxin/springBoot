@@ -15,9 +15,14 @@ public class ClassUtil {
             ClassUtil cl = new ClassUtil();
             /*反射实例化类*/
             Class<?> userClass = Class.forName("com.wcx.springboot.demo.model.User");
-            User user = (User)userClass.newInstance();
-            user.setId(1);
-            user.setName("wang");
+            Object userObj = userClass.newInstance();
+            User user = null;
+            /*将超类转换成子类之前，用instanceof 进行检查*/
+            if (userObj instanceof User) {
+                user = (User) userClass.newInstance();
+                user.setId(1);
+                user.setName("wang");
+            }
 
             /*调用反射类方法*/
             Method m = userClass.getDeclaredMethod("setName", String.class);
@@ -31,6 +36,7 @@ public class ClassUtil {
 
             /*测试assignableFrom*/
             boolean assignableFrom = Object.class.isAssignableFrom(String.class);
+
 
             Class<?> ia = Class.forName("com.wcx.springboot.demo.Reflector.inter.IA");
             Class<?> a = Class.forName("com.wcx.springboot.demo.Reflector.A");
