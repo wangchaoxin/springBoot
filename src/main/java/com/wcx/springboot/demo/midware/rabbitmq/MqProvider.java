@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.rabbitmq;
+package com.wcx.springboot.demo.midware.rabbitmq;
 
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.AmqpTemplate;

@@ -1,7 +1,7 @@
 package com.wcx.springboot.demo.controller;
 
 import com.wcx.springboot.demo.configure.Configuration;
-import com.wcx.springboot.demo.configure.ProfileConfigure;
+import com.wcx.springboot.demo.configure.ProfileConfig;
 import com.wcx.springboot.demo.configure.RedisConfig;
 import com.wcx.springboot.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +18,14 @@ public class ConfigController {
     @Autowired
     private UserService userService;
     @Autowired
-    private ProfileConfigure profileConfigure;
+    private ProfileConfig profileConfig;
     @Autowired
     private RedisConfig redisConfig;
 
     @RequestMapping("/get")
     String test() {
         String configName = configuration.getName();
-        String name= profileConfigure.getName();
+        String name= profileConfig.getName();
         String redisName = redisConfig.getName();
         return redisName;
     }
