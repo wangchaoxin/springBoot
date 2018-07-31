@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.midware.rabbitmq;
+package com.wcx.springboot.demo.midware.rabbitmq.amqp;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

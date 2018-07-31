@@ -5,13 +5,12 @@ import com.mongodb.ServerAddress;
 import com.wcx.springboot.demo.configure.MongoConfig;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MongoProvider {
 
-    @Autowired
+//    @Autowired
     private MongoConfig mongoConfig;
 
     private Datastore datastore;

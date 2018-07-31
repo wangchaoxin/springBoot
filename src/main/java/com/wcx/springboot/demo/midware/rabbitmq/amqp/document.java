@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.midware.rabbitmq;
+package com.wcx.springboot.demo.midware.rabbitmq.amqp;
 
 public class document {
     /**

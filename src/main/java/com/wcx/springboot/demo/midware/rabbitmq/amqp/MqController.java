@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.midware.rabbitmq;
+package com.wcx.springboot.demo.midware.rabbitmq.amqp;
 
 import com.wcx.springboot.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,5 @@
-package com.wcx.springboot.demo.midware.rabbitmq;
+/*
+package com.wcx.springboot.demo.midware.rabbitmq.amqp;
 
 import com.wcx.springboot.demo.model.User;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -15,9 +16,11 @@ public class Receiver {
         System.out.println("Receiver : user:" + message);
     }
 
-    /**
+    */
+/**
      * 发送的数据为对象时，接收时参数也为对象
-     */
+     *//*
+
     @RabbitListener(queues = "user")
     @RabbitHandler
     public void process(User user) {
@@ -25,3 +28,4 @@ public class Receiver {
     }
 
 }
+*/
