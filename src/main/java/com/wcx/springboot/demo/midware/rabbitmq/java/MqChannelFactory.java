@@ -4,17 +4,29 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
 import java.io.IOException;
-import java.util.concurrent.TimeoutException;
 
 public class MqChannelFactory {
-    public static Channel create() {
-        Channel channel=null;
+    public static Channel create(boolean closeConnection) {
+        Channel channel = null;
+        Connection connection = null;
+        connection = MqConnectionFactory.getConnection();
         try {
-            Connection connection = MqConnectionFactory.getConnection();
-             channel = connection.createChannel();
-        } catch (IOException | TimeoutException e) {
-            e.printStackTrace();
+            if (connection != null) {
+                channel = connection.createChannel();
+            }
+        } catch (IOException e) {
+            return null;
         }
         return channel;
+    }
+
+    private static void closeConnection(Connection connection) {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
     }
 }

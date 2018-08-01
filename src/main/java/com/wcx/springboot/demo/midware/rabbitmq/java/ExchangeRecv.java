@@ -5,12 +5,13 @@ import com.rabbitmq.client.*;
 import java.io.IOException;
 
 /**
- * exchange fanout reveive
+ * exchange fanout reveive,pub/sub
  */
-public class ExchangeRecv implements MqConfig{
+public class ExchangeRecv implements MqConfig {
     public static void main(String[] args) throws IOException {
-        Channel channel = MqChannelFactory.create();
-
+        Channel channel = MqChannelFactory.create(false);
+        if (channel == null)
+            return;
         /*声明exchange，将queue绑定到exchange*/
         channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
         String queueName = channel.queueDeclare().getQueue();

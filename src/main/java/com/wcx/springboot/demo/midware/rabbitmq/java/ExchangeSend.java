@@ -12,7 +12,7 @@ public class ExchangeSend implements MqConfig{
 
 
     public static void main(String[] args) throws IOException {
-        Channel channel = MqChannelFactory.create();
+        Channel channel = MqChannelFactory.create(false);
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         String message = "Hello World!";
 //        channel.basicPublish("", MqConfig.QUEUE_NAME, null, message.getBytes());

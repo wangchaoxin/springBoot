@@ -10,13 +10,16 @@ public class Recv {
 
     /**
      * 发送到单个queue上
+     *
      * @param args
      * @throws IOException
      * @throws TimeoutException
      */
     public static void main(String[] args) throws IOException, TimeoutException {
-        Channel channel = MqChannelFactory.create();
+        Channel channel = MqChannelFactory.create(false);
 
+        if (channel == null)
+            return;
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
         Consumer consumer = new DefaultConsumer(channel) {
@@ -28,6 +31,7 @@ public class Recv {
                 System.out.println(" [x] Received '" + message + "'");
             }
         };
+        /*autoAck设置为false,不自动确认，每条消息都需要手动确认，保证消息可靠*/
         channel.basicConsume(QUEUE_NAME, true, consumer);
 
     }
