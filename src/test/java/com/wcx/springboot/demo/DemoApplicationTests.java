@@ -1,6 +1,6 @@
+/*
 package com.wcx.springboot.demo;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,15 +13,5 @@ public class DemoApplicationTests {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
-    @Test
-    public void contextLoads() {
-        logger.info("contextLoads");
-    }
-
-    /*测试rabbitmq*/
-    @Test
-    public void send() {
-    }
-
 }
+*/

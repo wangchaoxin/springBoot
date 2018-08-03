@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.configure;
+package com.wcx.springboot.demo.boot.configure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 @PropertySource("classpath:/config/redis.properties")
 @ConfigurationProperties(prefix = "redis")
-
 public class RedisConfig {
     private String name;
 

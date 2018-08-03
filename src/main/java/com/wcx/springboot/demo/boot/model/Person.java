@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.model;
+package com.wcx.springboot.demo.boot.model;
 
 public abstract class Person {
     private String name;

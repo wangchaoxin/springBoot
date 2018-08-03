@@ -1,7 +1,7 @@
-package com.wcx.springboot.demo.controller;
+package com.wcx.springboot.demo.boot.controller;
 
-import com.wcx.springboot.demo.model.User;
-import com.wcx.springboot.demo.service.UserService;
+import com.wcx.springboot.demo.boot.model.User;
+import com.wcx.springboot.demo.boot.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

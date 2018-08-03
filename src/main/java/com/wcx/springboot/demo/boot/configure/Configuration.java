@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.configure;
+package com.wcx.springboot.demo.boot.configure;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

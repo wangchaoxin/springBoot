@@ -1,6 +1,6 @@
-package com.wcx.springboot.demo.controller;
+package com.wcx.springboot.demo.boot.controller;
 
-import com.wcx.springboot.demo.model.User;
+import com.wcx.springboot.demo.boot.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

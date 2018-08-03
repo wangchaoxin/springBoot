@@ -1,7 +1,10 @@
-package com.wcx.springboot.demo.Util;
+package com.wcx.springboot.demo.boot.Util;
 
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * 判断系统类型，windows or linux
+ */
 public class SystemUtil {
 
     public static final String WINDOWS = "windows";

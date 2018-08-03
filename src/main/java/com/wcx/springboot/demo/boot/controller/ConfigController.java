@@ -1,13 +1,15 @@
-package com.wcx.springboot.demo.controller;
+package com.wcx.springboot.demo.boot.controller;
 
-import com.wcx.springboot.demo.configure.Configuration;
-import com.wcx.springboot.demo.configure.ProfileConfig;
-import com.wcx.springboot.demo.configure.RedisConfig;
-import com.wcx.springboot.demo.service.UserService;
+import com.wcx.springboot.demo.boot.configure.Configuration;
+import com.wcx.springboot.demo.boot.configure.ProfileConfig;
+import com.wcx.springboot.demo.boot.configure.RedisConfig;
+import com.wcx.springboot.demo.boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 @RestController
 @EnableAutoConfiguration
@@ -19,7 +21,8 @@ public class ConfigController {
     private UserService userService;
     @Autowired
     private ProfileConfig profileConfig;
-    @Autowired
+    /*resource 自动注入*/
+    @Resource
     private RedisConfig redisConfig;
 
     @RequestMapping("/get")

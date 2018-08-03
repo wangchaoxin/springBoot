@@ -1,6 +1,6 @@
 package com.wcx.springboot.demo.midware.rabbitmq.amqp;
 
-import com.wcx.springboot.demo.model.User;
+import com.wcx.springboot.demo.boot.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

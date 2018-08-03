@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.model;
+package com.wcx.springboot.demo.boot.model;
 
 public class Student extends Person {
     @Override

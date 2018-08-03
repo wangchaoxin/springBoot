@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.interceptor;
+package com.wcx.springboot.demo.boot.interceptor;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

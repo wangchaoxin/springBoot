@@ -1,7 +1,7 @@
 /*
 package com.wcx.springboot.demo.midware.rabbitmq.amqp;
 
-import com.wcx.springboot.demo.model.User;
+import com.wcx.springboot.demo.boot.model.User;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;

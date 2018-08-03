@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.interceptor;
+package com.wcx.springboot.demo.boot.interceptor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

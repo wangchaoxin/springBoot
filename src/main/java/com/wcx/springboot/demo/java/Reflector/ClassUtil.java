@@ -1,6 +1,6 @@
 package com.wcx.springboot.demo.java.Reflector;
 
-import com.wcx.springboot.demo.model.User;
+import com.wcx.springboot.demo.boot.model.User;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -14,7 +14,7 @@ public class ClassUtil {
         try {
             ClassUtil cl = new ClassUtil();
             /*反射实例化类*/
-            Class<?> userClass = Class.forName("com.wcx.springboot.demo.model.User");
+            Class<?> userClass = Class.forName("com.wcx.springboot.demo.boot.model.User");
             Object userObj = userClass.newInstance();
             User user = null;
             /*将超类转换成子类之前，用instanceof 进行检查*/

@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.controller;
+package com.wcx.springboot.demo.boot.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
