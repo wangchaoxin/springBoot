@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.Reflector;
+package com.wcx.springboot.demo.java.Reflector;
 
 import com.wcx.springboot.demo.model.User;
 
@@ -26,20 +26,24 @@ public class ClassUtil {
 
             /*调用反射类方法*/
             Method m = userClass.getDeclaredMethod("setName", String.class);
+            Method m1 = userClass.getMethod("setName", String.class);
             m.invoke(user, "chao");
             System.out.println(user.getName());
 
             /*访问私有成员变量*/
             Field field = userClass.getDeclaredField("id");
-            field.setAccessible(true);//设置允许访问
+            field.setAccessible(true);//设置允许访问，默认不允许访问私有域
             field.set(user, 10);
+            String name = field.get(user).toString();
 
             /*测试assignableFrom*/
             boolean assignableFrom = Object.class.isAssignableFrom(String.class);
 
 
-            Class<?> ia = Class.forName("com.wcx.springboot.demo.Reflector.inter.IA");
-            Class<?> a = Class.forName("com.wcx.springboot.demo.Reflector.A");
+
+
+            Class<?> ia = Class.forName("com.wcx.springboot.demo.java.Reflector.inter.IA");
+            Class<?> a = Class.forName("com.wcx.springboot.demo.java.Reflector.A");
 
             System.out.println(ia.isAssignableFrom(a));
 
