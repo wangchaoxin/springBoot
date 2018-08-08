@@ -13,8 +13,9 @@ public class ExchangeRecv implements MqConfig {
         if (channel == null)
             return;
         /*声明exchange，将queue绑定到exchange*/
-        channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
+//        channel.exchangeDeclare(EXCHANGE_NAME, "topic");
+//        String queueName = channel.queueDeclare().getQueue();
+        String queueName="add.device";
         channel.queueBind(queueName, EXCHANGE_NAME, "");
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");

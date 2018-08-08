@@ -23,7 +23,7 @@ public class MongoProvider {
         // 在该目录下找到有@Entity的映射类
         morphia.mapPackage("com.wcx.springboot.demo.midware.mongo");
 
-        // create the Datastore connecting to the default port on the local host
+        // create the Datastore connecting to the default PORT on the local HOST
         // connect to multiple databases by creating different Datastore instances
         ServerAddress serverAddress = new ServerAddress(mongoConfig.getHost(), mongoConfig.getPort());
         final Datastore datastore = morphia.createDatastore(new MongoClient(serverAddress), databaseName);

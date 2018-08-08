@@ -1,9 +1,13 @@
 package com.wcx.springboot.demo.midware.rabbitmq.java;
 
 public interface MqConfig {
-    String host = "192.168.64.2";
-    int port = 5672;
+    int PORT = 5672;
+
+    String HOST = "192.168.200.75";
+    String USER_NAME="vmsmquser";
+    String PASS_WORD="vmsmqpassword";
+
 
     String QUEUE_NAME = "hello";
-    String EXCHANGE_NAME = "logs";
+    String EXCHANGE_NAME = "vms-devsvc";
 }
