@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.pattern.observer;
+package com.wcx.springboot.demo.pattern.observer.normal;
 
 public class ConcreteObserver implements Observer {
 

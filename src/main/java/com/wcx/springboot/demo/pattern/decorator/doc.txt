@@ -1,0 +1,9 @@
+装饰器模式：
+    给爱用继承的人一个全新的眼界,可以不通过继承扩展类的行为
+    装饰者和被装饰者有相同的超类型
+    你可以用一个或多个装饰者包装一个对象
+    装饰者可以在所委托的被装饰者的行为之前/或之后，加上自己的行为，以达到特定目的
+
+jdk中的装饰器模式：
+    FilterInputStream 继承InputStream,  BufferedInputStream等类装饰FilterInputStream
+    FilterInputStream是一个抽象装饰类

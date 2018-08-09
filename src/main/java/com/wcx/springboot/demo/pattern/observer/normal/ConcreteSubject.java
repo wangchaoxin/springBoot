@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.pattern.observer;
+package com.wcx.springboot.demo.pattern.observer.normal;
 
 import java.util.ArrayList;
 import java.util.List;
