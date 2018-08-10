@@ -11,7 +11,11 @@ public class Singleton {
     private Singleton() {
     }
 
-    public static Singleton getInstance() {
+    /**
+     * 加synchronized不好的原因：只有第一次执行此方法时，才需要同步，每次调用都同步没有必要
+     * @return
+     */
+    public synchronized static Singleton getInstance() {
         /*延迟初始化，用的时候才使用*/
         if (instance == null) {
             instance = new Singleton();
