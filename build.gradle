@@ -17,11 +17,12 @@ apply plugin: 'java'    /**构建jar的插件，默认去src/main/java中去找�
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'  /**打成zip包的插件，执行gradle build,能生成可执行脚本*/
 //apply plugin: 'war'     /**引入war插件，war插件会自动引入jar插件*/
 
 group = 'com.wcx.springboot'
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+
 
 repositories {
     mavenCentral()
@@ -29,8 +30,10 @@ repositories {
 
 //修改项目属性，定义jar版本
 version = 0.1
+def appMainClass = 'DemoApplication'
 //修改插件属性,设置启动类，可以直接通过java -jar  a.jar 启动程序
 jar {
+    mainClassName = appMainClass
     manifest {
         attributes 'MainClass': 'com.wcx.springboot.demo.DemoApplication'
     }
