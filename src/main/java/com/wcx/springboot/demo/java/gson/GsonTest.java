@@ -21,5 +21,8 @@ public class GsonTest {
         JsonParser jsonParser=new JsonParser();
         JsonObject jsonObject = jsonParser.parse(json).getAsJsonObject();
         System.out.println("success");
+
+        /*转换到json string*/
+        String s = gson.toJson(mqResponse);
     }
 }
