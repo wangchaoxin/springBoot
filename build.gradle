@@ -52,28 +52,7 @@ jar {
         attributes 'MainClass': 'com.wcx.springboot.demo.DemoApplication'
     }
 }
-/************打包发布***************/
-/**将jar发布到maven仓库*/
-apply plugin: 'maven'   /**添加用于将项目发布到 Maven 仓库的支持。*/
-//java plugin中使用的默认任务，使用archives配置上传包括 JAR 文件的构件。
-uploadArchives {
-    repositories {
-        mavenLocal() /**发布到本地maven仓库*/
-    }
-}
-/**发布到自定义仓库*/
-/*uploadArchives {
-    repositories {
-        ivy {
-            credentials {
-                username "username"
-                password "pw"
-            }
-            url "http://repo.mycompany.com"
-        }
-    }
-}*/
-/************打包发布***************/
+
 
 /************依赖***************/
 /**gradle dependencies：查看依赖文件*/
@@ -115,21 +94,42 @@ dependencies {
 }
 /************依赖***************/
 
-/************Project***************/
 
-//在构建脚本中，你所调用的任何一个方法，如果在构建脚本中未定义，它将被委托给 Project 对象。
-//在构建脚本中，你所访问的任何一个属性，如果在构建脚本里未定义，它也会被委托给 Project 对象。
-//访问project属性
-task pro << {
-//    println(String.format("version[%s],name[%s],group[%s],path[%s],projectDir[%s],buildDir[%s]", project.version, project.name, project.group, path, projectDir, buildDir))
-    //hasProperty判断是否有该属性
-    println(String.format("testProperty[%s],hasProperty[%s]", testProperty, hasProperty("springBootVersion")))
-}
-
-/************Project***************/
 
 //使用外部构建脚本配置项目
 apply from: 'other.gradle'
+
+/************发布***************/
+apply plugin:  'maven-publish'
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allJava
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            url = "C:\\Users\\P1318045\\.m2\\repository"
+            //定义不同的publish路径,发布到本地，执行PublishToMavenLocal task
+           /* maven {
+                def releasesRepoUrl = "$buildDir/repos/releases"
+                def snapshotsRepoUrl = "$buildDir/repos/snapshots"
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            }*/
+        }
+    }
+}
+/************发布***************/
 
 
 

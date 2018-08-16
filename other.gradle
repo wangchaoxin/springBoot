@@ -1,4 +1,4 @@
-/***************Task-start********************/
+/***************1.Task-start********************/
 task zip(type: Zip) {
     from('build/libs') {
         include '*.jar'
@@ -29,6 +29,40 @@ task second {
 second.dependsOn("first")  /**依赖任务*/
 /***************Task-end********************/
 
+/************2.打包发布***************/
+/**将jar发布到maven仓库*/
+apply plugin: 'maven'   /**添加用于将项目发布到 Maven 仓库的支持。*/
+//java plugin中使用的默认任务，使用archives配置上传包括 JAR 文件的构件。
+uploadArchives {
+    repositories {
+        mavenLocal() /**发布到本地maven仓库*/
+    }
+}
+/**发布到自定义仓库*/
+/*uploadArchives {
+    repositories {
+        ivy {
+            credentials {
+                username "username"
+                password "pw"
+            }
+            url "http://repo.mycompany.com"
+        }
+    }
+}*/
+/************打包发布***************/
+
+/************3.Project***************/
+//在构建脚本中，你所调用的任何一个方法，如果在构建脚本中未定义，它将被委托给 Project 对象。
+//在构建脚本中，你所访问的任何一个属性，如果在构建脚本里未定义，它也会被委托给 Project 对象。
+//访问project属性
+task pro << {
+//    println(String.format("version[%s],name[%s],group[%s],path[%s],projectDir[%s],buildDir[%s]", project.version, project.name, project.group, path, projectDir, buildDir))
+    //hasProperty判断是否有该属性
+    println(String.format("testProperty[%s],hasProperty[%s]", testProperty, hasProperty("springBootVersion")))
+}
+/************Project***************/
+
 
 //Java 插件添加了 source sets 的概念 （见SourceSet） 
 // 来描述的源文件集的各个方面，其中一个方面是在编译的时候这些类文件应该被写到哪个地方。
@@ -36,7 +70,7 @@ second.dependsOn("first")  /**依赖任务*/
 /*
 sourceSets.main.output.classesDir = file("$buildDir/output/classes")  //通过这个源码集修改写入类文件的位置
 sourceSets {
-    main {
+    main {N
         java {
             srcDirs = ['src']  //设置默认的源码目录为src
         }
