@@ -1,0 +1,56 @@
+/***************Task-start********************/
+task zip(type: Zip) {
+    from('build/libs') {
+        include '*.jar'
+    }
+    from '$rootDir/config'
+}
+build.dependsOn(zip)
+task printProperties() {
+    println("buildDir:" + buildDir + ",projectDir:" + projectDir + ",rootDir:" + rootDir)
+}
+task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
+    from "src"
+    into "dest"
+}
+/**生成gradle包装器,执行gradle wrapper生成gradlew文件，执行./gradlew进行编译*/
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0'
+}
+task first << {
+    println("first")
+}
+/**访问gradle.properties中的属性*/
+task second {
+    doLast {
+        println("My name is $my_name")
+    }
+}
+second.dependsOn("first")  /**依赖任务*/
+/***************Task-end********************/
+
+
+//Java 插件添加了 source sets 的概念 （见SourceSet） 
+// 来描述的源文件集的各个方面，其中一个方面是在编译的时候这些类文件应该被写到哪个地方。
+// Java 插件将 compileJava 任务的 destinationDir 属性映射到源文件集的这一个方面。
+/*
+sourceSets.main.output.classesDir = file("$buildDir/output/classes")  //通过这个源码集修改写入类文件的位置
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']  //设置默认的源码目录为src
+        }
+        test {
+            java {
+                srcDirs = ['test']  //设置默认的测试目录为test
+            }
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
+*/
+
+/**改变项目输出路径到out目录*/
+//buildDir = 'out'
