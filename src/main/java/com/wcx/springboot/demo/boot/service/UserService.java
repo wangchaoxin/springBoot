@@ -4,4 +4,6 @@ import com.wcx.springboot.demo.boot.model.User;
 
 public interface UserService {
     User getUser(long id);
+    void init();
+    void destroy();
 }

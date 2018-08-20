@@ -90,7 +90,7 @@ dependencies {
     /**amqp*/
     compile('com.rabbitmq:amqp-client:5.3.0')
     /**测试依赖本地maven仓库jar*/
-    compile(group: 'vit.vms.api', name: 'arbiter-app', version: '1.0.2-SNAPSHOT')
+//    compile(group: 'vit.vms.api', name: 'arbiter-app', version: '1.0.2-SNAPSHOT')
 }
 /************依赖***************/
 

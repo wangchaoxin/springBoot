@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("hello")
 public class HelloController {
 
-    @RequestMapping(value="index", method= RequestMethod.GET)
+    @RequestMapping(value = "index", method = RequestMethod.GET)
     public String readersBooks(
             Model model) {
-            model.addAttribute("name", "wangchaoxin");
-        User user=new User(2,"wang");
+        model.addAttribute("name", "wangchaoxin");
+        User user = new User(2, "wang");
         model.addAttribute("user", user);
         return "index";   //对应templates里的index.html
     }

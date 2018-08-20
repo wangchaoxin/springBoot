@@ -2,7 +2,7 @@ package com.wcx.springboot.demo.midware.mongo;
 
 import com.mongodb.MongoClient;
 import com.mongodb.ServerAddress;
-import com.wcx.springboot.demo.boot.configure.MongoConfig;
+import com.wcx.springboot.demo.boot.config.MongoConfig;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 import org.springframework.stereotype.Component;

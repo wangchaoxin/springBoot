@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.boot.configure;
+package com.wcx.springboot.demo.boot.config;
 
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
