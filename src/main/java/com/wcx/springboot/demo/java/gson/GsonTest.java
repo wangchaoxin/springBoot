@@ -24,5 +24,6 @@ public class GsonTest {
 
         /*转换到json string*/
         String s = gson.toJson(mqResponse);
+
     }
 }
