@@ -18,7 +18,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class ServiceConfiguration {
 
     /*指定初始化方法和销毁方法*/
-    @Bean(initMethod = "init",destroyMethod = "destroy")
+    @Bean(initMethod = "init", destroyMethod = "destroy")
     @ConditionalOnMissingBean(UserService.class)
     UserService getUserService() {
         return new UserServiceImpl();

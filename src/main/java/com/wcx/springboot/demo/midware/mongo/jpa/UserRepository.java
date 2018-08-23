@@ -59,4 +59,34 @@ public interface UserRepository extends MongoRepository<User, Long> {
      * @return
      */
     int countByIdAndStatusIn(String id, Collection<Integer> status);
+
+    /**
+     * delete by id
+     * @param id
+     * @return
+     */
+    long deleteById(int id);
+
+    /**
+     * delete by status
+     * @param userName
+     * @return
+     */
+    List<User> removeByUserName(String userName);
+
+    /**
+     * distinct
+     * @param userName
+     * @param status
+     * @return
+     */
+    List<User> findDistinctByUsernameOrStatus(String userName, int status);
+
+    /**
+     * ignore case
+     * @param userName
+     * @param status
+     * @return
+     */
+    List<User> findDistinctByUsernameOrStatusIgnoreCase(String userName, int status);
 }

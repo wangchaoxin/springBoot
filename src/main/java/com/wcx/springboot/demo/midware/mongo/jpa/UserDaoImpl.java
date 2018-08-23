@@ -14,7 +14,6 @@ public class UserDaoImpl implements UserDao {
 
     /**
      * 创建对象
-     *
      * @param user
      */
     @Override
@@ -24,7 +23,6 @@ public class UserDaoImpl implements UserDao {
 
     /**
      * 根据用户名查询对象
-     *
      * @param userName
      * @return
      */
@@ -37,7 +35,6 @@ public class UserDaoImpl implements UserDao {
 
     /**
      * 更新对象
-     *
      * @param user
      */
     @Override
@@ -52,7 +49,6 @@ public class UserDaoImpl implements UserDao {
 
     /**
      * 删除对象
-     *
      * @param id
      */
     @Override
