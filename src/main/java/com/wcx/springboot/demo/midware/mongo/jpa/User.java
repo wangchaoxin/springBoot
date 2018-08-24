@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.io.Serializable;
 
 /**
- *  Document用于类，以表示这个类需要映射到数据库，您也可以指定映射到数据库的集合名称
+ * Document用于类，以表示这个类需要映射到数据库，您也可以指定映射到数据库的集合名称
  */
 @Document(collection = "user")
 public class User implements Serializable {

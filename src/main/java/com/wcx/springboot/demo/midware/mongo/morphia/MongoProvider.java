@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.midware.mongo;
+package com.wcx.springboot.demo.midware.mongo.morphia;
 
 import com.mongodb.MongoClient;
 import com.mongodb.ServerAddress;

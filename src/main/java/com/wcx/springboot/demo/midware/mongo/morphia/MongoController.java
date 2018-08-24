@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.midware.mongo;
+package com.wcx.springboot.demo.midware.mongo.morphia;
 
 import org.mongodb.morphia.Key;
 import org.springframework.web.bind.annotation.RequestMapping;

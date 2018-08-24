@@ -1,7 +1,7 @@
 package com.wcx.springboot.demo;
 
 import com.wcx.springboot.demo.midware.mongo.jpa.User;
-import com.wcx.springboot.demo.midware.mongo.jpa.UserDao;
+import com.wcx.springboot.demo.midware.mongo.mongo_template.UserDao;
 import com.wcx.springboot.demo.midware.mongo.jpa.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;

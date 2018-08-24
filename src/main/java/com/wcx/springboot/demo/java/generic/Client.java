@@ -6,8 +6,10 @@ public class Client {
         Box<Number> box1 = new Box<>(2);
 //        System.out.println(box.getData());
 
-        getData(box);
+        Object data = getData(box);
+        System.out.println(data);
         getData(box1);
+
     }
 
 
@@ -16,7 +18,8 @@ public class Client {
      *
      * @param box
      */
-    public static void getData(Box<?> box) {
+    public static Object getData(Box<?> box) {
         System.out.println(box.getData());
+        return box.getData();
     }
 }

@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.midware.mongo;
+package com.wcx.springboot.demo.midware.mongo.morphia;
 
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.*;

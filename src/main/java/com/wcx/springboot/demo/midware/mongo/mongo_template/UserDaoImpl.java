@@ -1,5 +1,6 @@
-package com.wcx.springboot.demo.midware.mongo.jpa;
+package com.wcx.springboot.demo.midware.mongo.mongo_template;
 
+import com.wcx.springboot.demo.midware.mongo.jpa.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
