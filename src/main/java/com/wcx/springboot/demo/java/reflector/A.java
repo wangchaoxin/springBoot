@@ -1,6 +1,6 @@
-package com.wcx.springboot.demo.java.Reflector;
+package com.wcx.springboot.demo.java.reflector;
 
-import com.wcx.springboot.demo.java.Reflector.inter.IA;
+import com.wcx.springboot.demo.java.reflector.inter.IA;
 
 public class A implements IA {
 

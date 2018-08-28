@@ -1,7 +1,7 @@
 package com.wcx.springboot.demo.java.proxy;
 
-import com.wcx.springboot.demo.java.Reflector.A;
-import com.wcx.springboot.demo.java.Reflector.inter.IA;
+import com.wcx.springboot.demo.java.reflector.A;
+import com.wcx.springboot.demo.java.reflector.inter.IA;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

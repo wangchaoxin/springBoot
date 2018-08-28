@@ -72,7 +72,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-devtools")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
-    /**加此配置，解决ConfigurationProperties注解无效*/
     compile("org.springframework.boot:spring-boot-configuration-processor")
     /**springboot开发者工具，classpath下文件改动会自动重启*/
     compile "org.springframework.boot:spring-boot-devtools"

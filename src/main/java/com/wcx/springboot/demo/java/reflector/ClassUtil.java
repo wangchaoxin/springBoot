@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.java.Reflector;
+package com.wcx.springboot.demo.java.reflector;
 
 import com.wcx.springboot.demo.boot.model.User;
 
@@ -42,8 +42,8 @@ public class ClassUtil {
 
 
 
-            Class<?> ia = Class.forName("com.wcx.springboot.demo.java.Reflector.inter.IA");
-            Class<?> a = Class.forName("com.wcx.springboot.demo.java.Reflector.A");
+            Class<?> ia = Class.forName("com.wcx.springboot.demo.java.reflector.inter.IA");
+            Class<?> a = Class.forName("com.wcx.springboot.demo.java.reflector.A");
 
             System.out.println(ia.isAssignableFrom(a));
 

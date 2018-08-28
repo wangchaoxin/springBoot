@@ -57,7 +57,7 @@ public class MongoTest {
      * repository test
      */
     @Test
-    public void testFindRepository(){
+    public void testFindRepository() {
         //find
         List<User> users = userRepository.findAll();
         User userById = userRepository.findById(2L).get();
@@ -74,9 +74,9 @@ public class MongoTest {
      * 设置id如果相同的话更新该条记录
      */
     @Test
-    public void testSaveRepository(){
+    public void testSaveRepository() {
 //        String id= "5b7e5ffd77b1e40e58537c34";
-        User user=new User();
+        User user = new User();
 //        user.setId(id);
         user.setUserName("哈哈11");
         user.setPassWord("111");
@@ -84,5 +84,6 @@ public class MongoTest {
         user.setTestField(2);
         User save = userRepository.save(user);
         System.out.println(save);
+        assert (user.getPassWord().equals("111"));
     }
 }

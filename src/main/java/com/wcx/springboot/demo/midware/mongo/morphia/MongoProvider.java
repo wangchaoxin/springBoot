@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MongoProvider {
 
-//    @Autowired
+    //    @Autowired
     private MongoConfig mongoConfig;
 
     private Datastore datastore;
@@ -28,12 +28,13 @@ public class MongoProvider {
         ServerAddress serverAddress = new ServerAddress(mongoConfig.getHost(), mongoConfig.getPort());
         final Datastore datastore = morphia.createDatastore(new MongoClient(serverAddress), databaseName);
         datastore.ensureIndexes();
-        this.datastore=datastore;
+        this.datastore = datastore;
     }
 
     public MongoProvider() {
 
     }
+
     public Datastore getDatastore() {
         return datastore;
     }
