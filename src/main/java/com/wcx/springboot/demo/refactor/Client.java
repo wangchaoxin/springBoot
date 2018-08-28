@@ -2,6 +2,7 @@ package com.wcx.springboot.demo.refactor;
 
 public class Client {
     private  static int x;
+
     public static void main(String[] args) {
         String result = "";
         int a = 0;
@@ -18,6 +19,8 @@ public class Client {
             case 2:
                 result = "2";
         }
+        setX(1);
+        YDelegate.y =1;
     }
 
     /**
@@ -36,5 +39,13 @@ public class Client {
     private static void print(String args) {
         args += "1";
 
+    }
+
+    public static int getX() {
+        return x;
+    }
+
+    public static void setX(int x) {
+        Client.x = x;
     }
 }
