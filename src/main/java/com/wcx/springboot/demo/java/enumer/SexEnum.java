@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.java;
+package com.wcx.springboot.demo.java.enumer;
 
 public enum SexEnum {
 
@@ -16,4 +16,4 @@ public enum SexEnum {
     public void setDesc(String desc) {
         this.desc = desc;
     }
-    }
+}

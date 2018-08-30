@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.java.Reflector.inter;
+package com.wcx.springboot.demo.java.reflector.inter;
 
 import java.io.Serializable;
 

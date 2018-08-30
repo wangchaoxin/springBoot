@@ -1,0 +1,14 @@
+log4j2.xml file location
+    You should put log4j2.xml anywhere in application’s classpath. Log4j will scan all classpath locations to find out this file and then load it.
+additivity="false"
+    表示在该logger中输出的日志不会再延伸到父层logger。这里如果改为true，则会延伸到Root Logger，遵循Root Logger的配置也输出一次
+daily rolling file
+    RollingRandomAccessFile的属性：
+    fileName  指定当前日志文件的位置和文件名称
+    filePattern  指定当发生Rolling时，文件的转移和重命名规则
+    SizeBasedTriggeringPolicy  指定当文件体积大于size指定的值时，触发Rolling
+    DefaultRolloverStrategy  指定最多保存的文件个数
+    TimeBasedTriggeringPolicy  这个配置需要和filePattern结合使用，注意filePattern中配置的文件重命名规则是${FILE_NAME}-%d{yyyy-MM-dd HH-mm}-%i，
+     最小的时间粒度是mm，即分钟，TimeBasedTriggeringPolicy指定的size是1，结合起来就是每1分钟生成一个新文件。如果改成%d{yyyy-MM-dd HH}，最小粒度为小时，则每一个小时生成一个文件。
+spring boot log4j:
+    需要先去掉logback

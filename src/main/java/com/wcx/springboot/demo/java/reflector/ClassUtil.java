@@ -1,10 +1,12 @@
-package com.wcx.springboot.demo.java.Reflector;
+package com.wcx.springboot.demo.java.reflector;
 
 import com.wcx.springboot.demo.boot.model.User;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class ClassUtil {
 
@@ -13,6 +15,8 @@ public class ClassUtil {
 
         try {
             ClassUtil cl = new ClassUtil();
+            ArrayList classes = PackageUtil.getClasses("com.wcx.springboot.demo.java.generic");
+
             /*反射实例化类*/
             Class<?> userClass = Class.forName("com.wcx.springboot.demo.boot.model.User");
             Object userObj = userClass.newInstance();
@@ -40,10 +44,8 @@ public class ClassUtil {
             boolean assignableFrom = Object.class.isAssignableFrom(String.class);
 
 
-
-
-            Class<?> ia = Class.forName("com.wcx.springboot.demo.java.Reflector.inter.IA");
-            Class<?> a = Class.forName("com.wcx.springboot.demo.java.Reflector.A");
+            Class<?> ia = Class.forName("com.wcx.springboot.demo.java.reflector.inter.IA");
+            Class<?> a = Class.forName("com.wcx.springboot.demo.java.reflector.A");
 
             System.out.println(ia.isAssignableFrom(a));
 
@@ -52,12 +54,15 @@ public class ClassUtil {
         }
     }
 
-    public ClassUtil() {
+    public ClassUtil() throws IOException {
         /*file:/D:/ncs/projects/springboot/out/production/classes/*/
         /*在该路径下寻找类*/
         URL resource = getClass().getResource("/");
         System.out.println(resource);
+
     }
+
+
 
 
 }

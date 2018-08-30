@@ -1,6 +1,6 @@
 package com.wcx.springboot.demo.pattern.facade;
 
-import com.wcx.springboot.demo.java.Reflector.A;
+import com.wcx.springboot.demo.java.reflector.A;
 
 /**
  * 外观类:组合多个子系统，提供统一接口

@@ -25,4 +25,8 @@ public class MongoConfig {
     public void setPort(int port) {
         this.port = port;
     }
+
+    public MongoConfig(){
+        System.out.println("init");
+    }
 }

@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'java-library'   //生成jar包的插件
+
+//Customizing the project
+/*The Java plugin adds a number of properties to your project.
+ These properties have default values which are usually sufficient to get started.
+  It’s easy to change these values if they don’t suit. Let’s look at this for our sample.
+  Here we will specify the version number for our Java project, along with some attributes to the JAR manifest*/
+version = '1.0'
+//定义jar task 属性
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                'Implementation-Version': version
+    }
+}
+
+//External dependencies,Declaring multiple repositories
+//按顺序查找，如果找到包就停止
+repositories {
+    mavenCentral()
+    //Declaring a custom repository by URL
+    maven {
+        url "http://repo.mycompany.com/maven2"
+    }
+}
+// Adding dependencies
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+//Adding a test system property
+test {
+    systemProperties 'property': 'value'
+}
+//Publishing the JAR file
+/*Usually the JAR file needs to be published somewhere. To do this, you need to tell Gradle where to publish the JAR file.
+In Gradle, artifacts such as JAR files are published to repositories. In our sample, we will publish to a local directory.
+You can also publish to a remote location, or multiple locations*/
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs 'repos'
+        }
+    }
+}
