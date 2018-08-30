@@ -7,10 +7,8 @@ import java.util.List;
 
 /*index指明索引*/
 @Entity("employees")
-@Indexes(
-        @Index(value = "salary", fields = @Field("salary"))
-)
-class Employee {
+@Indexes({@Index(value = "salary", fields = @Field("salary")), @Index(value = "salary", fields = @Field("salary"))})
+public class Employee {
     /**
      * 每个Entity必须有id，指明主键,对应document中的_id列
      */
@@ -23,6 +21,17 @@ class Employee {
     private List<Employee> directReports;
     @Property("wage")     /*可以省略，目的是指明属性名称*/
     private Double salary;
+
+    /**
+     * transient 和static 属性不存到mongo
+     */
+    private transient int age;
+
+    /**
+     * 必须提供默认构造函数
+     */
+    public Employee() {
+    }
 
     public Employee(String name, Double salary) {
         this.name = name;

@@ -1,6 +1,10 @@
 package com.wcx.springboot.demo.midware.mongo.morphia;
 
+import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Key;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,12 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("mongo")
 public class MongoController {
 
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @RequestMapping("save")
+    @Autowired
+    private MongoProvider mongoProvider;
+
+    @RequestMapping
     public void save() {
-        MongoProvider mongoProvider = new MongoProvider("test-mongo");
+        Datastore datastore = mongoProvider.getDatastore("test-mongo");
         final Employee elmer = new Employee("Elmer Fudd", 50000.0);
-        Key<Employee> employeeKey = mongoProvider.getDatastore().save(elmer);
-        System.out.println("mongo save success");
+        Key<Employee> employeeKey = datastore.save(elmer);
+        logger.info("save success");
     }
 }

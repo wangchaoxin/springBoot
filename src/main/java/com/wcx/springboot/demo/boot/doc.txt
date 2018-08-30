@@ -1,0 +1,3 @@
+@postconstruct
+because when the constructor is called, the bean is not yet initialized -
+i.e. no dependencies are injected. In the @PostConstruct method the bean is fully initialized and you can use the dependencies.

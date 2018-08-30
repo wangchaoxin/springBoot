@@ -1,10 +1,8 @@
 package com.wcx.springboot.demo.midware.mongo.mongo_template;
 
 import com.mongodb.MongoClient;
-import com.wcx.springboot.demo.boot.config.MongoConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -21,11 +19,6 @@ import static org.springframework.data.mongodb.core.query.Update.update;
 
 public class MongoApp {
     private static Logger log = LoggerFactory.getLogger(MongoApp.class);
-
-    @Autowired
-    MongoTemplate mongoTemplate = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), "test"));
-    @Autowired
-    private static MongoConfig mongoConfig;
 
     public static void main(String[] args) {
 

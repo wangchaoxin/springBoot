@@ -1,6 +1,7 @@
 package com.wcx.springboot.demo.boot.controller;
 
 import com.wcx.springboot.demo.boot.config.Config;
+import com.wcx.springboot.demo.boot.config.MongoConfig;
 import com.wcx.springboot.demo.boot.config.ProfileConfig;
 import com.wcx.springboot.demo.boot.config.RedisConfig;
 import com.wcx.springboot.demo.boot.service.UserService;
@@ -21,6 +22,8 @@ public class ConfigController {
     private UserService userService;
     @Autowired
     private ProfileConfig profileConfig;
+    @Autowired
+    private MongoConfig mongoConfig;
     /*resource 自动注入*/
     @Resource
     private RedisConfig redisConfig;

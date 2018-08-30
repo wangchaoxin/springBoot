@@ -18,7 +18,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MongoTest {
+public class MongoDataTest {
     @Autowired
     private UserDao userDao;
     @Autowired

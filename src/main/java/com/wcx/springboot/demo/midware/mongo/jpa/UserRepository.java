@@ -80,7 +80,7 @@ public interface UserRepository extends MongoRepository<User, Long> {
      * @param status
      * @return
      */
-    List<User> findDistinctByUsernameOrStatus(String userName, int status);
+    List<User> findDistinctByUserNameOrStatus(String userName, int status);
 
     /**
      * ignore case
@@ -88,5 +88,5 @@ public interface UserRepository extends MongoRepository<User, Long> {
      * @param status
      * @return
      */
-    List<User> findDistinctByUsernameOrStatusIgnoreCase(String userName, int status);
+    List<User> findDistinctByUserNameOrStatusIgnoreCase(String userName, int status);
 }
