@@ -9,10 +9,13 @@ build.dependsOn(zip)
 task printProperties() {
     println("buildDir:" + buildDir + ",projectDir:" + projectDir + ",rootDir:" + rootDir)
 }
+
 task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
     from "src"
     into "dest"
 }
+
+
 /**生成gradle包装器,执行gradle wrapper生成gradlew文件，执行./gradlew进行编译*/
 task wrapper(type: Wrapper) {
     gradleVersion = '4.0'
@@ -31,13 +34,7 @@ second.dependsOn("first")  /**依赖任务*/
 
 /************2.打包发布***************/
 /**将jar发布到maven仓库*/
-apply plugin: 'maven'   /**添加用于将项目发布到 Maven 仓库的支持。*/
-//java plugin中使用的默认任务，使用archives配置上传包括 JAR 文件的构件。
-uploadArchives {
-    repositories {
-        mavenLocal() /**发布到本地maven仓库*/
-    }
-}
+
 /**发布到自定义仓库*/
 /*uploadArchives {
     repositories {
@@ -64,13 +61,13 @@ task pro << {
 /************Project***************/
 
 
-//Java 插件添加了 source sets 的概念 （见SourceSet） 
+//Java 插件添加了 source sets 的概念 （见SourceSet）
 // 来描述的源文件集的各个方面，其中一个方面是在编译的时候这些类文件应该被写到哪个地方。
 // Java 插件将 compileJava 任务的 destinationDir 属性映射到源文件集的这一个方面。
 /*
 sourceSets.main.output.classesDir = file("$buildDir/output/classes")  //通过这个源码集修改写入类文件的位置
 sourceSets {
-    main {N
+    main {
         java {
             srcDirs = ['src']  //设置默认的源码目录为src
         }
@@ -88,3 +85,9 @@ sourceSets {
 
 /**改变项目输出路径到out目录*/
 //buildDir = 'out'
+
+task zip1(type: Zip) {
+    from jar
+    from 'doc'
+    from 'config'
+}

@@ -23,5 +23,8 @@ public class Box<T> implements IBox<T> {
         this.data = data;
     }
 
-
+    @Override
+    public void init() {
+        System.out.println("init");
+    }
 }

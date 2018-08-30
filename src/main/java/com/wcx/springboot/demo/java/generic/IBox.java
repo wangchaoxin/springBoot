@@ -7,4 +7,5 @@ package com.wcx.springboot.demo.java.generic;
  */
 public interface IBox<T> {
     void setData(T data);
+    void init();
 }

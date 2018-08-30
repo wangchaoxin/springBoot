@@ -1,0 +1,42 @@
+api
+完全等同于compile指令，没区别，你将所有的compile改成api，完全没有错。
+The dependencies required to compile the production source of the project which are part of the API exposed by the project.
+For example the project uses Guava and exposes public interfaces with Guava classes in their method signatures.
+
+implement指令
+这个指令的特点就是，对于使用了该命令编译的依赖，对该项目有依赖的项目将无法访问到使用该命令编译的依赖中的任何程序，也就是将该依赖隐藏在内部，而不对外部公开。
+The dependencies required to compile the production source of the project which are not part of the API exposed by the project.
+For example the project uses Hibernate for its internal persistence layer implementation.
+
+
+testImplementation
+The dependencies required to compile and run the test source of the project.
+ For example the project decided to write test code with the test framework JUnit.
+
+runtimeOnly
+(supersedes runtime) — only used at runtime, not for compilation
+
+plugins:
+ java
+     构建jar的插件，默认去src/main/java中去找文件*
+     插件添加了新任务 （例如JavaCompile），域对象 （例如SourceSet），约定（例如主要的 Java 源代码是位于 src/main/java）
+     向一个项目添加 Java 编译、 测试和捆绑的能力。它是很多其他 Gradle 插件的基础服务。
+     By applying the Java Plugin, you get a whole host of features:
+         A compileJava task that compiles all the Java source files under src/main/java
+         A compileTestJava task for source files under src/test/java
+         A test task that runs the tests from src/test/java
+         A jar task that packages the main compiled classes and resources from src/main/resources into a single JAR named <project>-<version>.jar
+         A javadoc task that generates Javadoc for the main classes
+ base 创建zip文件
+      the distribution is the base plugin. Combined with a core type called Zip, you can create a zip archive of your project with a configured name and location
+     The base plugin works with the settings to create an archive file called basic-demo-1.0.zip in the build/distributions folder
+ java-library  生成jar的插件
+     生成java doc文档:执行 gradle  javadoc  任务
+     ./gradlew javadoc
+     You can view the generated javadoc files by opening the HTML file located at build/docs/javadoc/index.html
+ application
+    build时候可以打成zip包和可执行脚本，需要指定主函数  mainClassName = "org.gradle.sample.Main"
+    You can run gradle installDist to create an image of the application in build/install/projectName.
+    You can run gradle distZip to create a ZIP containing the distribution, gradle distTar to create an application
+    TAR or gradle assemble to build both.
+
