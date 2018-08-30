@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.log.logback;
+package com.wcx.springboot.demo.midware.log.logback;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

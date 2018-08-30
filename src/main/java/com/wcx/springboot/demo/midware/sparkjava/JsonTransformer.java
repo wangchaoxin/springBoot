@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.sparkjava;
+package com.wcx.springboot.demo.midware.sparkjava;
 
 import com.google.gson.Gson;
 import spark.ResponseTransformer;

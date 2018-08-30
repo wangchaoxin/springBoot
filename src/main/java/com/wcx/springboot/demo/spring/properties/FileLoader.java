@@ -6,6 +6,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
 
+/**
+ * load  property file
+ */
 public class FileLoader {
     public static void main(String[] args) throws IOException {
         FileLoader fileLoader = new FileLoader();

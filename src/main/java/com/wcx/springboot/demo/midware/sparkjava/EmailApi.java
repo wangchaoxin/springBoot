@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.sparkjava;
+package com.wcx.springboot.demo.midware.sparkjava;
 
 public class EmailApi {
     public static void addEmail(){

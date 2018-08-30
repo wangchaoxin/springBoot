@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.log.log4j2;
+package com.wcx.springboot.demo.midware.log.log4j2;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
