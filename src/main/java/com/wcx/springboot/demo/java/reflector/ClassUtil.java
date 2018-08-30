@@ -7,7 +7,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Enumeration;
 
 public class ClassUtil {
 
@@ -61,10 +60,6 @@ public class ClassUtil {
         URL resource = getClass().getResource("/");
         System.out.println(resource);
 
-        Enumeration<URL> resources = getClass().getClassLoader().getResources("com.wcx.springboot.demo.generic");
-        while (resources.hasMoreElements()) {
-            URL url = resources.nextElement();
-        }
     }
 
 
