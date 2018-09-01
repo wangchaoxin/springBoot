@@ -3,6 +3,7 @@ package com.wcx.springboot.demo.midware.mongo.morphia;
 import com.mongodb.MongoClient;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
+import org.mongodb.morphia.query.FindOptions;
 import org.mongodb.morphia.query.Query;
 import org.mongodb.morphia.query.UpdateOperations;
 import org.mongodb.morphia.query.UpdateResults;
@@ -62,11 +63,16 @@ public class Client {
                 q.criteria("salary").greaterThan(10),
                 q.criteria("salary").lessThan(100)
         );
-        //默认就是and 查询
+        //默认就是and 查询,分页查询 limit and  skip
         datastore.createQuery(Employee.class)
                 .field("salary").lessThan(5)
                 .field("salary").greaterThan(4)
-                .field("salary").greaterThan(10);
+                .field("salary").greaterThan(10).asList(new FindOptions().skip(1).limit(1));
+
+        //排序order by
+        //The javadoc has complete examples but this String consists of a list of comma delimited fields to order by.
+        // To reverse the sort order for a particular field simply prefix that field with a -
+        q.order("age,-income");
 
 
         System.out.println("end");

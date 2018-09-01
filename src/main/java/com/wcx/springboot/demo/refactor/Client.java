@@ -1,6 +1,6 @@
 package com.wcx.springboot.demo.refactor;
 
-public class Client {
+public class Client extends BaseClient {
     private  static int x;
 
     public static void main(String[] args) {
