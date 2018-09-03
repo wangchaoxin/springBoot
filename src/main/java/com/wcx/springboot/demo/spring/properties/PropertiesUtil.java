@@ -9,9 +9,9 @@ import java.util.Properties;
 /**
  * load  property file
  */
-public class FileLoader {
+public class PropertiesUtil {
     public static void main(String[] args) throws IOException {
-        FileLoader fileLoader = new FileLoader();
+        PropertiesUtil fileLoader = new PropertiesUtil();
         File file = fileLoader.loadFile("properties/a.properties");
 
         Properties properties = fileLoader.loadProperties("properties/a.properties");

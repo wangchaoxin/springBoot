@@ -27,6 +27,7 @@ public class App {
     }
 
     //start the server
+    //json transformer
     void start() {
         get("/hello", (req, res) -> {
             Object foo = req.attribute("foo");//params
