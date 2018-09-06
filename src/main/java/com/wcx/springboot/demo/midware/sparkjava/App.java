@@ -87,6 +87,15 @@ public class App {
             return "File uploaded";
         });
 
+        //exception
+        get("/exception", (request, response) -> {
+            throw new Exception("exception happen");
+        });
+        exception(Exception.class, (exception, request, response) -> {
+            // Handle the exception here
+            System.out.println(exception.getMessage());
+        });
+
     }
 
     //stop the server

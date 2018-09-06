@@ -10,6 +10,11 @@ public class A implements IA {
         NestedA nestedA = new NestedA();
     }
 
+
+    public int getInt(){
+        return 1;
+    }
+
     @Override
     public void print(String args) {
         System.out.println(args);

@@ -10,19 +10,7 @@ import java.util.Properties;
  * load  property file
  */
 public class PropertiesUtil {
-    public static void main(String[] args) throws IOException {
-        PropertiesUtil fileLoader = new PropertiesUtil();
-        File file = fileLoader.loadFile("properties/a.properties");
 
-        Properties properties = fileLoader.loadProperties("properties/a.properties");
-        String name = properties.getProperty("name");
-        System.out.println("end");
-
-        //转义符测试:“.”和“|”都是转义字符必须得加"\\";
-        String a="a.b.c";
-        String[] split = a.split("\\.");
-        System.out.println("");
-    }
 
     public File loadFile(String fileName) {
         ClassLoader classLoader = getClass().getClassLoader();
@@ -44,5 +32,18 @@ public class PropertiesUtil {
         InputStream input = this.getClass().getClassLoader().getResourceAsStream("properties/a.properties");
         properties.load(input);
         return properties;
+    }
+    public static void main(String[] args) throws IOException {
+        PropertiesUtil fileLoader = new PropertiesUtil();
+        File file = fileLoader.loadFile("properties/a.properties");
+
+        Properties properties = fileLoader.loadProperties("properties/a.properties");
+        String name = properties.getProperty("name");
+        System.out.println("end");
+
+        //转义符测试:“.”和“|”都是转义字符必须得加"\\";
+        String a="a.b.c";
+        String[] split = a.split("\\.");
+        System.out.println("");
     }
 }

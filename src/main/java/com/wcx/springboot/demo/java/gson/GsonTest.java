@@ -25,5 +25,8 @@ public class GsonTest {
         /*转换到json string*/
         String s = gson.toJson(mqResponse);
 
+        /*将enum转换成json **/
+        String enumJson = gson.toJson(ApiResponse.FAIL);
+
     }
 }
