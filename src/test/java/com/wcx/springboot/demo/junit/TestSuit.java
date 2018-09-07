@@ -10,8 +10,8 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        ClientTest.class,MyTestRunner.class
-         })
+        ClientTest.class, MyTestRunner.class
+})
 public class TestSuit {
 
 }
