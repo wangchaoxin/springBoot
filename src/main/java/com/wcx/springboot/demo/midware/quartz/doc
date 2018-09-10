@@ -1,0 +1,9 @@
+格式
+    Seconds
+    Minutes
+    Hours
+    Day-of-Month
+    Month
+    Day-of-Week
+    Year (optional field)
+An example of a complete cron-expression is the string “0 0 12 ? * WED” - which means “every Wednesday at 12:00:00 pm”.
