@@ -20,7 +20,7 @@
     </Appenders>
     <Loggers>
         <Logger name="com.wcx.springboot.demo" level="info" additivity="true">
-            <appender-ref ref="fileLogger" level="debug" />
+            <appender-ref ref="fileLogger" level="info" />
         </Logger>
         <Root level="info" additivity="false">
             <appender-ref ref="console" />
