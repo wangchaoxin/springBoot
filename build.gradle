@@ -104,6 +104,9 @@ dependencies {
     compile group: 'org.quartz-scheduler', name: 'quartz-jobs', version: '2.2.1'
     //netty
     compile group: 'io.netty', name: 'netty-all', version: '4.1.22.Final'
+    //zookeeper
+    compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.4.6'
+
 
 
 

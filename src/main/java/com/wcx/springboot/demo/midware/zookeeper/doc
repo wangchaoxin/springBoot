@@ -1,0 +1,33 @@
+版本号
+    Znodes maintain a stat structure that includes version numbers for data changes, ACL changes, and timestamps,
+    to allow cache validations and coordinated updates. Each time a znode's data changes, the version number increases.
+    For instance, whenever a client retrieves data it also receives the version of the data.
+临时节点
+   ZooKeeper also has the notion of ephemeral nodes. These znodes exists as long as the session that created the znode is active. When the session ends the znode is deleted.
+   Because of this behavior ephemeral znodes are not allowed to have children.
+watch监视：
+    Conditional updates and watches
+    ZooKeeper supports the concept of watches. Clients can set a watch on a znodes.
+    A watch will be triggered and removed when the znode changes. When a watch is triggered the client receives a packet
+    saying that the znode has changed. And if the connection between the client and one of the Zoo Keeper servers is broken,
+    the client will receive a local notification
+The ZooKeeper Data Model
+    The only difference is that each node in the namespace can have data associated with it as well as children
+    节点可以同时存储数据，还可以是目录
+Watches
+    Clients can set watches on znodes. Changes to that znode trigger the watch and then clear the watch. When a watch triggers, ZooKeeper sends the client a notification
+Sequence Nodes -- Unique Naming
+    When creating a znode you can also request that ZooKeeper append a monotonically increasing counter to the end of path.
+    This counter is unique to the parent znode. The counter has a format of %010d -- that is 10 digits with 0 (zero) padding (the counter is formatted in this way to simplify sorting)
+ZooKeeper Sessions
+    127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002
+    zookeeper会自动连接任意节点，client挂掉，则session失效
+API:
+    connect − connect to the ZooKeeper ensemble
+    create − create a znode
+    exists − check whether a znode exists and its information
+    getData − get data from a particular znode
+    setData − set data in a particular znode
+    getChildren − get all sub-nodes available in a particular znode
+    delete − get a particular znode and all its children
+    close − close a connection
