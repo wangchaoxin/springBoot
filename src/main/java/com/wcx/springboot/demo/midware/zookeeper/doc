@@ -31,3 +31,11 @@ API:
     getChildren − get all sub-nodes available in a particular znode
     delete − get a particular znode and all its children
     close − close a connection
+create
+    create -s -e path data acl   -s 顺序节点  -e 临时节点
+读取
+    ls  /zookeper/   get /zookeeper
+更新
+    set path data
+删除
+    delete path  该节点必须没有子节点存在

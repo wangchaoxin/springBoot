@@ -1,6 +1,6 @@
-package com.wcx.springboot.demo.spring.aop.cglib;
+package com.wcx.springboot.demo.midware.spring.aop.cglib;
 
-import com.wcx.springboot.demo.spring.aop.proxy.RequestableImpl;
+import com.wcx.springboot.demo.midware.spring.aop.proxy.RequestableImpl;
 import net.sf.cglib.proxy.Enhancer;
 
 public class Client {

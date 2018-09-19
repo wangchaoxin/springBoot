@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.spring.aop.cglib;
+package com.wcx.springboot.demo.midware.spring.aop.cglib;
 
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;

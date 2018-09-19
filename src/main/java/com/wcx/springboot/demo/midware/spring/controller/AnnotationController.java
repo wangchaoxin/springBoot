@@ -1,7 +1,7 @@
-package com.wcx.springboot.demo.spring.controller;
+package com.wcx.springboot.demo.midware.spring.controller;
 
-import com.wcx.springboot.demo.spring.annotation.TestAnno;
-import com.wcx.springboot.demo.spring.annotation.WController;
+import com.wcx.springboot.demo.midware.spring.annotation.TestAnno;
+import com.wcx.springboot.demo.midware.spring.annotation.WController;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

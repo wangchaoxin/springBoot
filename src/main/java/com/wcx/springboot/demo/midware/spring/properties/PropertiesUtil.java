@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.spring.properties;
+package com.wcx.springboot.demo.midware.spring.properties;
 
 import java.io.File;
 import java.io.IOException;

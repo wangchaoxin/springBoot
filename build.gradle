@@ -106,6 +106,8 @@ dependencies {
     compile group: 'io.netty', name: 'netty-all', version: '4.1.22.Final'
     //zookeeper
     compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.4.6'
+    compile group: 'com.github.sgroschupf', name: 'zkclient', version: '0.1'
+
 
 
 

@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.spring.aop.cglib;
+package com.wcx.springboot.demo.midware.spring.aop.cglib;
 
 public class BaseClass {
     public void request(){

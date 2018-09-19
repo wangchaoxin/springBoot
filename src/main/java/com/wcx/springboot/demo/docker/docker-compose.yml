@@ -1,0 +1,47 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3.7.4-management-alpine
+    restart: unless-stopped
+    hostname: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=vmsmquser
+      - RABBITMQ_DEFAULT_PASS=vmsmqpassword
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    labels:
+      - "traefik.enable=false"
+#            volumes:
+#                - ./data/rabbitmq:/var/lib/rabbitmq
+  mongo:
+    image: mongo:jessie
+    restart: unless-stopped
+    ports:
+        - "27017:27017"
+    labels:
+        - "traefik.enable=false"
+#    volumes:
+#        - ./data/mongodb:/data/db
+  fs:
+    image: java:8
+    restart: unless-stopped
+    depends_on:
+        - rabbitmq
+        - mongo
+    links:
+        - "rabbitmq:rabbitmq"
+        - "mongo:mongo"
+    ports:
+        - "9000:9000"
+    volumes:
+        - ./bin:/usr/service/app/bin
+        - ./lib:/usr/service/app/lib
+    working_dir: /usr/service/app
+    labels:
+        - traefik.enable=true
+        - traefik.backend=api-arbiter
+        - traefik.port=8702
+        - traefik.frontend.rule=PathPrefix:/api;PathPrefixStrip:/api
+    command: ./bin/app
+

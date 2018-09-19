@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.spring.aop.proxy;
+package com.wcx.springboot.demo.midware.spring.aop.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.spring;
+package com.wcx.springboot.demo.midware.spring;
 
 import com.wcx.springboot.demo.midware.mongo.morphia.Employee;
 import com.wcx.springboot.demo.midware.mongo.morphia.MongoProvider;

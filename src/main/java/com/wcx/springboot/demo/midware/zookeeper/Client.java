@@ -25,7 +25,7 @@ public class Client {
         Stat stat1 = new Stat();
         zooKeeper.getData(path, new Watcher() {
             //function of type Watcher. The ZooKeeper ensemble will notify through the Watcher callback when the data of the specified znode changes.
-            // This is one-time notification.
+            // This is one-time notification.需要反复注册watcher
             @Override
             public void process(WatchedEvent event) {
                 //event path
