@@ -107,6 +107,13 @@ dependencies {
     //zookeeper
     compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.4.6'
     compile group: 'com.github.sgroschupf', name: 'zkclient', version: '0.1'
+    //curator
+    compile group: 'org.apache.curator', name: 'curator-framework', version: '2.4.2'
+    //curator的典型使用场景
+    compile group: 'org.apache.curator', name: 'curator-recipes', version: '2.4.2'
+    //inject 也引用了guava，高版本不喝curator兼容
+    compile "com.google.guava:guava:14.0.1"
+
 
 
 
