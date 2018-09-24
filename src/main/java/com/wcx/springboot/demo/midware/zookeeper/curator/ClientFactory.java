@@ -15,7 +15,12 @@ public class ClientFactory {
 
     static CuratorFramework getClient() {
         RetryPolicy retryPolicy = new ExponentialBackoffRetry(3000, 3);
-        CuratorFramework client = CuratorFrameworkFactory.newClient("192.168.64.2:2181", 5000, 3000, retryPolicy);
+//        CuratorFramework client = CuratorFrameworkFactory.newClient("192.168.64.2:2181", 5000, 3000, retryPolicy);
+
+
+        //sessionTimout时间内没有心跳检测，会话失效
+        //connectionTimeout连接超时，如果连接超过此时间，抛出异常进行重试
+        CuratorFramework client = CuratorFrameworkFactory.newClient("zookeeper", 1000, 3000, retryPolicy);
         client.start();
         return client;
     }
@@ -28,6 +33,13 @@ public class ClientFactory {
         CuratorFramework client = CuratorFrameworkFactory.newClient("192.168.64.2:2181", 5000, 3000, retryPolicy);
         client.start();
         table.put(key, client);
+        return client;
+    }
+
+    static CuratorFramework getClient(String ip, int port) {
+        RetryPolicy retryPolicy = new ExponentialBackoffRetry(3000, 3);
+        CuratorFramework client = CuratorFrameworkFactory.newClient(String.format("%s:%s", ip, port), 5000, 3000, retryPolicy);
+        client.start();
         return client;
     }
 }

@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.junit;
+package com.wcx.springboot.demo.midware.junit;
 
 import org.junit.*;
 

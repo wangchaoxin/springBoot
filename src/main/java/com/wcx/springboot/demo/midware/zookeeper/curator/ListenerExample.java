@@ -2,11 +2,20 @@ package com.wcx.springboot.demo.midware.zookeeper.curator;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.*;
+import org.apache.curator.framework.state.ConnectionState;
+import org.apache.curator.framework.state.ConnectionStateListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.CountDownLatch;
 
 /**
  * 事件监听
  */
-public class ListenExample {
+public class ListenerExample {
+
+    private static Logger logger = LoggerFactory.getLogger(ListenerExample.class);
+
     public static final String PATH = "/test/curator/listener";
 
     public static void main(String[] args) throws Exception {
@@ -19,6 +28,48 @@ public class ListenExample {
         //dataChange(client);
 
         //子节点变化,无法对二级子节点进行事件监听
+        //childChange(client);
+
+        //连接状态变化
+        connectionChange(client);
+
+
+        Thread.sleep(Integer.MAX_VALUE);
+    }
+
+    /**
+     * 连接状态变化
+     *
+     * @param client
+     */
+    private static void connectionChange(CuratorFramework client) throws Exception {
+        logger.info("connectionChange");
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+        ConnectionStateListener listener = new ConnectionStateListener() {
+            @Override
+            public void stateChanged(CuratorFramework client, ConnectionState newState) {
+                System.out.println(newState);
+                if (newState == ConnectionState.CONNECTED) {
+                    countDownLatch.countDown();
+                }
+            }
+        };
+        client.getConnectionStateListenable().addListener(listener);
+
+        // due to CURATOR-72, this was causing a LOST event to precede the CONNECTED event
+        client.create().inBackground().forPath("/foo");
+
+        countDownLatch.await();
+        System.out.println("end");
+    }
+
+    /**
+     * 子节点变化
+     *
+     * @param client
+     * @throws Exception
+     */
+    private static void childChange(CuratorFramework client) throws Exception {
         PathChildrenCache pathChildrenCache = new PathChildrenCache(client, PATH, true);
         pathChildrenCache.start();
         pathChildrenCache.getListenable().addListener(new PathChildrenCacheListener() {
@@ -42,9 +93,14 @@ public class ListenExample {
         client.create().forPath(PATH + "/c1");
         Thread.sleep(1000);
         client.delete().forPath(PATH + "/c1");
-        Thread.sleep(Integer.MAX_VALUE);
     }
 
+    /**
+     * 节点数据变化
+     *
+     * @param client
+     * @throws Exception
+     */
     private static void dataChange(CuratorFramework client) throws Exception {
         //监听分为：节点监听，子节点监听
         //监听节点数据变化,可以指定数据是否压缩
@@ -59,6 +115,5 @@ public class ListenExample {
             }
         });
         client.setData().forPath(PATH, "new data".getBytes());
-        Thread.sleep(Integer.MAX_VALUE);
     }
 }

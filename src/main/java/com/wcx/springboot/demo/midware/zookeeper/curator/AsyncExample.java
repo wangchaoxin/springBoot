@@ -8,6 +8,9 @@ import org.apache.zookeeper.CreateMode;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * 异步接口
+ */
 public class AsyncExample {
     public static final String PATH = "/test/curator";
     String s = "{\"name\":\"wang\"}";

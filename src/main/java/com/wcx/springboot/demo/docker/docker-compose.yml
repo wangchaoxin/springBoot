@@ -12,8 +12,8 @@ services:
       - "15672:15672"
     labels:
       - "traefik.enable=false"
-#            volumes:
-#                - ./data/rabbitmq:/var/lib/rabbitmq
+    volumes:
+        - ./data/rabbitmq:/var/lib/rabbitmq
   mongo:
     image: mongo:jessie
     restart: unless-stopped
@@ -21,8 +21,19 @@ services:
         - "27017:27017"
     labels:
         - "traefik.enable=false"
-#    volumes:
-#        - ./data/mongodb:/data/db
+    volumes:
+        - ./data/mongodb:/data/db
+  zookeeper:
+    image: zookeeper:latest
+    restart: unless-stopped
+    ports:
+        - "2181:2181"
+    labels:
+        - "traefik.enable=false"
+    volumes:
+        - ./data/zookeeper/data:/data
+        - ./data/zookeeper/datalog:/datalog
+
   fs:
     image: java:8
     restart: unless-stopped
@@ -32,6 +43,7 @@ services:
     links:
         - "rabbitmq:rabbitmq"
         - "mongo:mongo"
+        - "zookeeper:zookeeper"
     ports:
         - "9000:9000"
     volumes:
