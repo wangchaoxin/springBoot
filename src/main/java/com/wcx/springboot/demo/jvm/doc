@@ -1,0 +1,9 @@
+-Xss 指定线程最大栈空间，决定函数调用的最大深度,越大调用的次数越多
+-XX:+PrintGC  打印GC日志    -XX:+PrintGCDetails
+-XX:+PrintHeapAtGC  在GC的时候打印堆栈信息
+-XX:+PrintGCTimeStamps  每次GC发生时，额外输出GC发生时间，该输出时间为虚拟机启动后的时间偏移量
+-XX:+PrintGCApplicationStoppedTime  打印程序停顿时间
+-XX:+PrintGCApplicationConcurentTime  打印程序执行时间
+-XX:+PrintReferenceGC  跟踪系统内的软引用，弱引用，虚引用和Finallize队列
+-Xloggc:logs/gc.log   gc日志记录到文件中
+-XX:+PrintClassHistogram   打印类加载信息柱状图
