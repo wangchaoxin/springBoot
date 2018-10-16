@@ -1,3 +1,8 @@
 @postconstruct
 because when the constructor is called, the bean is not yet initialized -
 i.e. no dependencies are injected. In the @PostConstruct method the bean is fully initialized and you can use the dependencies.
+
+springboot cli
+    可以创建springboot项目
+spring initializr
+    http://start.spring.io

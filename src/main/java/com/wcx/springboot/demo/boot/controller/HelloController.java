@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("hello")
 public class HelloController {
-
+    /**
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String readersBooks(
             Model model) {

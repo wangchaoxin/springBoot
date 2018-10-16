@@ -7,3 +7,4 @@
 -XX:+PrintReferenceGC  跟踪系统内的软引用，弱引用，虚引用和Finallize队列
 -Xloggc:logs/gc.log   gc日志记录到文件中
 -XX:+PrintClassHistogram   打印类加载信息柱状图
+-XX:+PrintVMOptions   打印jvm参数

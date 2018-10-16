@@ -33,7 +33,7 @@ group = 'com.wcx.springboot'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 version = 0.2
-def appMainClass = 'DemoApplication'
+def appMainClass = 'com.wcx.springboot.demo.DemoApplication'
 
 /*********maven仓库************/
 /**一个项目可以采用多个库。Gradle 会按照顺序从各个库里寻找所需的依赖文件，并且一旦找到第一个便停止搜索*/
