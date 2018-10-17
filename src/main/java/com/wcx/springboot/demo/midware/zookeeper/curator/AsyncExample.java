@@ -19,7 +19,6 @@ public class AsyncExample {
     public static void main(String[] args) throws Exception {
         CuratorFramework client = ClientFactory.getClient();
 
-
         //异步接口  返回码  0(ok)  -4(Connection loss)
         //传入executorService，把一个复杂处理放到专门的线程，默认通过EVENT Thread串行执行
         client.create().withMode(CreateMode.EPHEMERAL).inBackground(new BackgroundCallback() {

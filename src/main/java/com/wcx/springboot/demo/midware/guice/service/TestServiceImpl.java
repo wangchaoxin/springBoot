@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.midware.guice;
+package com.wcx.springboot.demo.midware.guice.service;
 
 public class TestServiceImpl implements TestService {
     private String name;

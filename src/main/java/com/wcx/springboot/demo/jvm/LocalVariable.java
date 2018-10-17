@@ -52,9 +52,9 @@ public class LocalVariable {
 //            printGc();
 //            recursion1();
 
-            /*for (int i = 0; i < 10000000; i++) {
+            for (int i = 0; i < 10000000; i++) {
                 generateSpace();
-            }*/
+            }
             CountDownLatch countDownLatch = new CountDownLatch(1);
             countDownLatch.await();
         } catch (Throwable e) {

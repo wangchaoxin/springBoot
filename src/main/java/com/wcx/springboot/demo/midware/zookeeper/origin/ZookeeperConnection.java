@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.midware.zookeeper;
+package com.wcx.springboot.demo.midware.zookeeper.origin;
 
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;

@@ -8,3 +8,6 @@
 -Xloggc:logs/gc.log   gc日志记录到文件中
 -XX:+PrintClassHistogram   打印类加载信息柱状图
 -XX:+PrintVMOptions   打印jvm参数
+-Xmn1m 设置新生代大小
+-XX:SurvivorRatio=2  eden/from比例
+-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=d:/a.dump  转储堆快照
