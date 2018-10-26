@@ -7,7 +7,8 @@ import java.util.List;
 
 /*index指明索引*/
 @Entity("employees")
-@Indexes({@Index(value = "salary", fields = @Field("salary")), @Index(value = "salary", fields = @Field("salary"))})
+//唯一索引  options = @IndexOptions(unique = true))
+@Indexes({@Index(value = "salary", fields = @Field("salary")), @Index(value = "salary", fields = @Field("salary"),options = @IndexOptions(unique = true))})
 public class Employee {
     /**
      * 每个Entity必须有id，指明主键,对应document中的_id列

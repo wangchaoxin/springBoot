@@ -2,6 +2,7 @@ package com.wcx.springboot.demo.midware.mongo.morphia.service;
 
 import com.google.inject.Singleton;
 import com.mongodb.MongoClient;
+import org.bson.types.ObjectId;
 import org.eclipse.jetty.util.StringUtil;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
@@ -52,5 +53,15 @@ public class VideoFileServiceImpl implements VideoFileService {
             query.field("endTime").lessThanOrEq(endTime);
         }
         return query.asList();
+    }
+
+    /**
+     * 如果
+     * @param id
+     * @return
+     */
+    @Override
+    public VideoFile getById(String id) {
+        return datastore.get(VideoFile.class,new ObjectId(id));
     }
 }

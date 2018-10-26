@@ -48,6 +48,9 @@ public class Client {
                 .inc("salary", 10000);
         //3 更新
         final UpdateResults results = datastore.update(underPaidQuery, updateOperations);
+        //4 覆盖之后直接save
+        //datastore.save();
+
 
         /*remove**/
         // Removing just needs a query to find and delete the documents in question and then tell the Datastore to delete them

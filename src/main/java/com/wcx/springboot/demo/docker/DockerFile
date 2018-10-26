@@ -1,3 +1,8 @@
+
+#When the above Dockerfile is built into an image, app.py and requirements.txt
+#is present because of that Dockerfile’s COPY command, and the output from app.py
+#is accessible over HTTP thanks to the EXPOSE command.
+
 # Use an official Python runtime as a parent image
 FROM python:2.7-slim
 

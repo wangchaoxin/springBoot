@@ -10,4 +10,6 @@ public interface VideoFileService {
     void update(VideoFile videoFile);
 
     List<VideoFile> query(String deviceId, String channelId, String startTime, String endTime);
+
+    VideoFile getById(String id);
 }

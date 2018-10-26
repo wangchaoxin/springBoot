@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.java;
+package com.wcx.springboot.demo.java.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
