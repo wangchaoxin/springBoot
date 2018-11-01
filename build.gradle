@@ -121,6 +121,7 @@ dependencies {
     compile "com.google.guava:guava:14.0.1"
     //guava
     //compile 'com.google.guava:guava:26.0-jre'
+    compile 'com.alibaba:fastjson:1.2.44'
 
 
 }

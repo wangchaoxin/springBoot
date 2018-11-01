@@ -25,12 +25,14 @@ public class Client {
 
 
     public static void main(String[] args) {
-        maxMemory(args[0]);
+//        maxMemory(args[0]);
         try {
-            recursion();
+//            recursion();
         } catch (Throwable e) {
+            System.gc();
             System.out.println("最大调用次数:"+count);
         }
+        System.gc();
     }
 
 

@@ -1,0 +1,2 @@
+消息可靠性：ack确认
+消息持久化：声明queue是durable

@@ -11,3 +11,15 @@
 -Xmn1m 设置新生代大小
 -XX:SurvivorRatio=2  eden/from比例
 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=d:/a.dump  转储堆快照
+
+-XX:+UseParallelOldGC  老年代使用并行收集器，每次full gc都会触发一次young gc
+-XX:ScavengeBeforeFullGC   去掉FullGC之前发生的那次GC
+
+CMS参数
+-XX:+UseConcMarkSweepGC   使用cms收集器
+-XX:+ExplicitGCInvokesConcurrent   调用system.gc()时可以打印并发相关参数
+
+G1收集器
+-XX:+UseG1GC   使用G1收集器
+
+-XX:MaxTenuringThreshold=15  设置进入老年代回收的次数
