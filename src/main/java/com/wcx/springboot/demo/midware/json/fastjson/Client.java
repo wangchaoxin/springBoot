@@ -22,6 +22,8 @@ public class Client {
     private static void testJsonField() {
         Student student = new Student();
         System.out.println(JSON.toJSONString(student));
+        //parse array
+        JSON.parseArray("");
     }
 
     private static void testFilter() {

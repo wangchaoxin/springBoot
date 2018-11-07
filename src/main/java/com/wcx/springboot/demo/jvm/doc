@@ -1,25 +1,39 @@
--Xss 指定线程最大栈空间，决定函数调用的最大深度,越大调用的次数越多
--XX:+PrintGC  打印GC日志    -XX:+PrintGCDetails
--XX:+PrintHeapAtGC  在GC的时候打印堆栈信息
--XX:+PrintGCTimeStamps  每次GC发生时，额外输出GC发生时间，该输出时间为虚拟机启动后的时间偏移量
--XX:+PrintGCApplicationStoppedTime  打印程序停顿时间
--XX:+PrintGCApplicationConcurentTime  打印程序执行时间
--XX:+PrintReferenceGC  跟踪系统内的软引用，弱引用，虚引用和Finallize队列
--Xloggc:logs/gc.log   gc日志记录到文件中
--XX:+PrintClassHistogram   打印类加载信息柱状图
--XX:+PrintVMOptions   打印jvm参数
--Xmn1m 设置新生代大小
+栈
+    -Xss 指定线程最大栈空间，决定函数调用的最大深度,越大调用的次数越多
+打印相关
+    -XX:+PrintGC  打印GC日志    -XX:+PrintGCDetails
+    -XX:+PrintHeapAtGC  在GC的时候打印堆栈信息
+    -XX:+PrintGCTimeStamps  每次GC发生时，额外输出GC发生时间，该输出时间为虚拟机启动后的时间偏移量
+    -XX:+PrintGCApplicationStoppedTime  打印程序停顿时间
+    -XX:+PrintGCApplicationConcurentTime  打印程序执行时间
+    -XX:+PrintReferenceGC  跟踪系统内的软引用，弱引用，虚引用和Finallize队列
+    -Xloggc:logs/gc.log   gc日志记录到文件中
+    -XX:+PrintClassHistogram   打印类加载信息柱状图
+    -XX:+PrintVMOptions   打印jvm参数
+
+堆内存大小
+    -Xmx32M 堆最大内存 -Xms32M  堆最小内存  设置成一样，避免多次垃圾回收
+    -Xmn1m 设置新生代大小
+
 -XX:SurvivorRatio=2  eden/from比例
 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=d:/a.dump  转储堆快照
+-XX:MaxTenuringThreshold=15  设置进入老年代回收的次数
 
--XX:+UseParallelOldGC  老年代使用并行收集器，每次full gc都会触发一次young gc
--XX:ScavengeBeforeFullGC   去掉FullGC之前发生的那次GC
+
+
+收集器：
+    -XX:+UseSerialGC  使用串行收集器
+    -XX:+UseParallelOldGC  老年代使用并行收集器，每次full gc都会触发一次young gc
+    -XX:ScavengeBeforeFullGC   去掉FullGC之前发生的那次GC
 
 CMS参数
--XX:+UseConcMarkSweepGC   使用cms收集器
--XX:+ExplicitGCInvokesConcurrent   调用system.gc()时可以打印并发相关参数
+    -XX:+UseConcMarkSweepGC   使用cms收集器
+    -XX:+ExplicitGCInvokesConcurrent   调用system.gc()时可以打印并发相关参数
 
 G1收集器
--XX:+UseG1GC   使用G1收集器
+    -XX:+UseG1GC   使用G1收集器
 
--XX:MaxTenuringThreshold=15  设置进入老年代回收的次数
+5 垃圾回收器对tomcat性能影响：
+串行回收器
+    增加堆内存大小，减少回收次数，吞吐量上升
+    -XX:+PrintGCDetails -Xmx32M -Xms32M -XX:+HeapDumpOnOutOfMemoryError  -Xloggc:logs/gc.log    -XX:+UseSerialGC
