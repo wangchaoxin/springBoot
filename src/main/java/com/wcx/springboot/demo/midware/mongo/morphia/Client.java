@@ -1,6 +1,9 @@
 package com.wcx.springboot.demo.midware.mongo.morphia;
 
 import com.mongodb.MongoClient;
+import com.mongodb.WriteResult;
+import com.wcx.springboot.demo.midware.mongo.morphia.service.VideoFile;
+import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.query.FindOptions;
@@ -57,6 +60,7 @@ public class Client {
         final Query<Employee> overPaidQuery = datastore.createQuery(Employee.class)
                 .filter("salary >", 100000);
         datastore.delete(overPaidQuery);
+        WriteResult delete = datastore.delete(VideoFile.class, new ObjectId("11"));
 
 
         /*复杂查询**/

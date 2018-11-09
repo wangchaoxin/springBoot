@@ -1,0 +1,5 @@
+死循环占用过高CPU：
+    1 jps 查进行id
+    2 top -Hp pid  查占用cpu最大的线程
+    3 printf '%x\n' pid  将线程号转换成16进制
+    4 jstack pid|grep 16进制号  找到线程的堆栈信息

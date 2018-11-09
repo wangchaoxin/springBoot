@@ -56,6 +56,36 @@ public class VideoFileServiceImpl implements VideoFileService {
     }
 
     /**
+     * 1 and 2 and 3 and (4 or 5)这类查询
+     * @param deviceId
+     * @param channelId
+     * @param streamId
+     * @param startTime
+     * @param endTime
+     * @return
+     */
+    public List<VideoFile> query(int deviceId, int channelId, int streamId, long startTime, long endTime) {
+        Query<VideoFile> query = datastore.createQuery(VideoFile.class);
+        if (deviceId >= 0)
+            query.field("deviceId").equal(deviceId);
+        if (channelId >= 0)
+            query.field("channelId").equal(channelId);
+        if (streamId >= 0)
+            query.field("streamId").equal(streamId);
+        query.and(
+                query.or(
+                        query.criteria("startTime").lessThanOrEq(startTime)
+                                .criteria("endTime").greaterThanOrEq(startTime),
+                        query.criteria("startTime").lessThanOrEq(endTime)
+                                .criteria("endTime").greaterThanOrEq(endTime),
+                        query.criteria("startTime").greaterThanOrEq(startTime)
+                                .criteria("endTime").lessThanOrEq(endTime)
+                )
+        );
+        return query.asList();
+    }
+
+    /**
      * 如果
      * @param id
      * @return
