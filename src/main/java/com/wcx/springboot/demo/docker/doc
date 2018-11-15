@@ -71,12 +71,23 @@ Dockerfile指令详解：
         在会在复制文件前先行创建缺失目录。
         此外，还需要注意一点，使用 COPY 指令，源文件的各种元数据都会保留。比如
         读、写、执行权限、文件变更时间等。
-    ADD 更高级的复制文件：仅在需要自动解压缩的场合使用 ADD
+    ADD:
+        The ADD instruction copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the image at the path
+        ADD [--chown=<user>:<group>] <src>... <dest>
+        ADD hom* /mydir/        # adds all files starting with "hom"
+        ADD hom?.txt /mydir/    # ? is replaced with any single character, e.g., "home.txt"
+        ADD test relativeDir/          # adds "test" to `WORKDIR`/relativeDir/
+        ADD test /absoluteDir/         # adds "test" to /absoluteDir/
+        更高级的复制文件：仅在需要自动解压缩的场合使用 ADD
         有自动解压功能  ADD ubuntu-xenial-core-cloudimg-amd64-root.tar.gz /
         尽可能的使用 COPY ，因为 COPY 的语
         义很明确，就是复制文件而已，而 ADD 则包含了更复杂的功能，其行为也不一定很清晰
     CMD容器启动命令：
+        CMD ["executable","param1","param2"] (exec form, this is the preferred form)
+        CMD ["param1","param2"] (as default parameters to ENTRYPOINT)
+        CMD command param1 param2 (shell form)
         CMD 指令就是用于指定默认的容器主进程的启动命令的
+        只能有一个CMD指令
     ENTRYPOINT:
         目的和 CMD 一样，都是在指定容器启动程序及参
         当指定了 ENTRYPOINT 后， CMD 的含义就发生了改变，不再是直接的运行其命
@@ -84,12 +95,25 @@ Dockerfile指令详解：
         时，将变为：
         <ENTRYPOINT> "<CMD>"
         当存在 ENTRYPOINT 后， CMD 的内容将会作为参数传给 ENTRYPOINT
+    RUN:
+      RUN <command>
+      RUN ["executable", "param1", "param2"]
+      The RUN instruction will execute any commands in a new layer on top of the current image and commit the results.
+      The resulting committed image will be used for the next step in the Dockerfile.
+
     ENV 设置环境变量
+        This value will be in the environment for all subsequent instructions in the build stage
         就是设置环境变量而已，无论是后面的其它指令，如 RUN ，还
         是运行时的应用，都可以直接使用这里定义的环境变量
         格式有两种：
         ENV <key> <value>
         ENV <key1>=<value1> <key2>=<value2>...
+    EXPOSE:
+        The EXPOSE instruction does not actually publish the port.
+        It functions as a type of documentation between the person who builds the image and the person who
+        runs the container, about which ports are intended to be published. To actually publish the port when
+        running the container, use the -p flag on docker run to publish and map one or more ports
+        docker run -p 80:80/tcp -p 80:80/udp ...
 
 
 

@@ -13,8 +13,9 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.wcx.springboot.demo.midware.netty.discard;
+package com.wcx.springboot.demo.midware.netty.example.client;
 
+import com.wcx.springboot.demo.midware.netty.example.handler.DiscardClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

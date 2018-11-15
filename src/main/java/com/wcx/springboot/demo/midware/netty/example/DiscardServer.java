@@ -1,10 +1,8 @@
-package com.wcx.springboot.demo.midware.netty.discard;
+package com.wcx.springboot.demo.midware.netty.example;
 
+import com.wcx.springboot.demo.midware.netty.example.handler.TimeHandler;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -30,15 +28,23 @@ public class DiscardServer {
         try {
             ServerBootstrap b = new ServerBootstrap(); //
             b.group(bossGroup, workerGroup)
-                    .channel(NioServerSocketChannel.class) // we specify to use the NioServerSocketChannel class which is used to instantiate a new Channel to accept incoming connections.
+                    // we specify to use the NioServerSocketChannel class which is used to instantiate a
+                    // new Channel to accept incoming connections.
+                    .channel(NioServerSocketChannel.class)
                     .childHandler(new ChannelInitializer<SocketChannel>() { // ChannelInitializer初始化channel
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new DiscardServerHandler());
+                            ChannelPipeline pipeline = ch.pipeline();
+//                            pipeline.addLast(new DiscardServerHandler());
+//                            pipeline.addLast(new EchoServerHandler());
+                            pipeline.addLast(new TimeHandler());
                         }
                     })
-                    .option(ChannelOption.SO_BACKLOG, 128)          // (5)
-                    .childOption(ChannelOption.SO_KEEPALIVE, true); // option() is for the NioServerSocketChannel that accepts incoming connections. childOption() is for the Channels accepted by the parent ServerChannel, which is NioServerSocketChannel in this case.
+                    .option(ChannelOption.SO_BACKLOG, 128)          //设置tcp的一些属性
+                    // option() is for the NioServerSocketChannel that accepts incoming connections.
+                    // childOption() is for the Channels accepted by the parent ServerChannel,
+                    // which is NioServerSocketChannel in this case.
+                    .childOption(ChannelOption.SO_KEEPALIVE, true);
 
             // Bind and start to accept incoming connections.
             ChannelFuture f = b.bind(port).sync(); // (7)

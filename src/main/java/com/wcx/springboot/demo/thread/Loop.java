@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.java.thread;
+package com.wcx.springboot.demo.thread;
 
 public class Loop {
     public static void main(String[] args) throws InterruptedException {

@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.wcx.springboot.demo.midware.netty.discard;
+package com.wcx.springboot.demo.midware.netty.example.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelFuture;
@@ -31,15 +31,15 @@ public class DiscardClientHandler extends SimpleChannelInboundHandler<Object> {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
-        this.ctx = ctx;
-
-        // Initialize the message.
-        content = ctx.alloc().directBuffer(DiscardClient.SIZE).writeZero(DiscardClient.SIZE);
-
-        ctx.writeAndFlush("111");
-
-        // Send the initial messages.
-        generateTraffic();
+//        this.ctx = ctx;
+//
+//        // Initialize the message.
+//        content = ctx.alloc().directBuffer(DiscardClient.SIZE).writeZero(DiscardClient.SIZE);
+//
+//        ctx.writeAndFlush("111");
+//
+//        // Send the initial messages.
+//        generateTraffic();
     }
 
     @Override
@@ -49,7 +49,7 @@ public class DiscardClientHandler extends SimpleChannelInboundHandler<Object> {
 
     @Override
     public void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        // Server is supposed to send nothing, but if it sends something, discard it.
+        // Server is supposed to send nothing, but if it sends something, example it.
     }
 
     @Override

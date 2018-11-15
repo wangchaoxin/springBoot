@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.midware.netty.discard;
+package com.wcx.springboot.demo.midware.netty.example.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -17,10 +17,14 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
         // Discard the received data silently.
         //bytebuf引用计数减一，ByteBuf is a reference-counted object which has to be released explicitly via the release() method.
         // Please keep in mind that it is the handler's responsibility to release any reference-counted object passed to the handler.
+      ByteBuf in = (ByteBuf) msg;
+       /* while (in.isReadable()) { // (1)
+            System.out.print((char) in.readByte());
+            System.out.flush();
+        }*/
         ((ByteBuf) msg).release();
 
-
-        //另一种写法
+        //另一种写法,释放message
 //        ReferenceCountUtil.release(msg);
     }
 

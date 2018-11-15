@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.java.thread;
+package com.wcx.springboot.demo.thread;
 
 import java.util.Date;
 

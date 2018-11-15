@@ -10,6 +10,7 @@
     -Xloggc:logs/gc.log   gc日志记录到文件中
     -XX:+PrintClassHistogram   打印类加载信息柱状图
     -XX:+PrintVMOptions   打印jvm参数
+    -XX:+PrintGCCause    打印产生GC的原因，比如AllocationFailure什么的，在JDK8已默认打开，JDK7要显式打开一下。
 
 堆内存大小
     -Xmx32M 堆最大内存 -Xms32M  堆最小内存  设置成一样，避免多次垃圾回收
