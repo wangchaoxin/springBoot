@@ -1,6 +1,6 @@
 package com.wcx.springboot.demo.midware.netty.example;
 
-import com.wcx.springboot.demo.midware.netty.example.handler.TimeHandler;
+import com.wcx.springboot.demo.midware.netty.example.handler.TimeServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -10,11 +10,11 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 /**
  * Discards any incoming data.
  */
-public class DiscardServer {
+public class CommonServer {
 
     private int port;
 
-    public DiscardServer(int port) {
+    public CommonServer(int port) {
         this.port = port;
     }
 
@@ -37,7 +37,7 @@ public class DiscardServer {
                             ChannelPipeline pipeline = ch.pipeline();
 //                            pipeline.addLast(new DiscardServerHandler());
 //                            pipeline.addLast(new EchoServerHandler());
-                            pipeline.addLast(new TimeHandler());
+                            pipeline.addLast(new TimeServerHandler());
                         }
                     })
                     .option(ChannelOption.SO_BACKLOG, 128)          //设置tcp的一些属性
@@ -66,6 +66,6 @@ public class DiscardServer {
         } else {
             port = 8080;
         }
-        new DiscardServer(port).run();
+        new CommonServer(port).run();
     }
 }

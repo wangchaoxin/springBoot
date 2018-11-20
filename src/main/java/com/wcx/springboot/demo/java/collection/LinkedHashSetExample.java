@@ -15,7 +15,7 @@ import java.util.Set;
 public class LinkedHashSetExample {
     public static void main(String[] args) {
 
-//        linkedHashSetTest();
+        linkedHashSetTest();
         LinkedHashMapTest();
 
     }

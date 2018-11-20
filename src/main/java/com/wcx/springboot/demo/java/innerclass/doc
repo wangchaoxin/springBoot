@@ -1,0 +1,5 @@
+1 Why inner classes?
+    允许多继承
+    Each inner class can independently inherit from an implementation. Thus, the inner
+    class is not limited by whether the outer class is already inheriting from an
+    implementation.
