@@ -10,10 +10,6 @@ public enum Age {
     public static void main(String[] args) {
         System.out.println(Age.MON.ordinal());
         System.out.println(Age.valueOf("MON").ordinal()) ;
-
-        int a = 1 ^ 1;
-        int b = 0 ^ 5;
-        System.out.println(b);
     }
 
 }

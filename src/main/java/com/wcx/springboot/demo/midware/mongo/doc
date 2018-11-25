@@ -1,0 +1,6 @@
+删除table
+    db.collection.drop()
+看索引
+    db.collection.getIndexes()
+查找：
+    db.collection.find({name:"wang"})

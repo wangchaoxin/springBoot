@@ -11,7 +11,7 @@ import org.mongodb.morphia.utils.IndexType;
 @Entity
 @Indexes({
         //weight:权重，text索引才有用
-        @Index(fields = {@Field(value = "field1", type = IndexType.DESC),@Field(value = "field2",weight = 1)}),
+        @Index(fields = {@Field(value = "field1", type = IndexType.DESC),@Field(value = "field2",weight = 1)},options = @IndexOptions(unique = true)),
         @Index(fields = @Field(value = "field3", type = IndexType.ASC))
 })
 public class IndexExample {

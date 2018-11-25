@@ -34,8 +34,17 @@ public class VideoFileServiceImpl implements VideoFileService {
     }
 
     @Override
+    public void delete(VideoFile videoFile) {
+        datastore.delete(videoFile);
+    }
+
+    @Override
     public void update(VideoFile videoFile) {
         datastore.save(videoFile);
+    }
+    @Override
+    public void updateUseMerge(VideoFile videoFile) {
+        datastore.merge(videoFile);
     }
 
     @Override
@@ -94,4 +103,6 @@ public class VideoFileServiceImpl implements VideoFileService {
     public VideoFile getById(String id) {
         return datastore.get(VideoFile.class,new ObjectId(id));
     }
+
+
 }

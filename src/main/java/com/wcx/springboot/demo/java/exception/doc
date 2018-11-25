@@ -1,0 +1,30 @@
+1 异常发生时的处理
+    When you throw an exception, several things happen. First, the exception object is created in
+    the same way that any Java object is created: on the heap, with new. Then the current path
+    of execution (the one you couldn’t continue) is stopped and the reference for the exception
+    object is ejected from the current context. At this point the exception-handling mechanism
+    takes over and begins to look for an appropriate place to continue executing the program.
+    This appropriate place is the exception handler, whose job is to recover from the problem so
+    the program can either try another tack or just continue.
+2 error 和exception
+    The Java class Throwable describes anything that can be thrown as an exception. There are
+    two general types of Throwable objects ("types of = "inherited from"). Error represents
+    compile-time and system errors that you don’t worry about catching (except in very special
+    cases). Exception is the basic type that can be thrown from any of the standard Java library
+    class methods and from your methods and runtime accidents. So the Java programmer’s
+    base type of interest is usually Exception.
+3 RuntimeException
+    uncheckedException，throws时候不需要再方法中声明抛出异常，一直抛出到main方法中
+    /**
+     * {@code RuntimeException} is the superclass of those
+     * exceptions that can be thrown during the normal operation of the
+     * Java Virtual Machine.
+     * <p>{@code RuntimeException} and its subclasses are <em>unchecked
+     * exceptions</em>.  Unchecked exceptions do <em>not</em> need to be
+     * declared in a method or constructor's {@code throws} clause if they
+     * can be thrown by the execution of the method or constructor and
+     * propagate outside the method or constructor boundary.
+     *
+     */
+     If a RuntimeException gets all the way out to main( ) without being
+     caught, printStackTrace( ) is called for that exception as the program exits

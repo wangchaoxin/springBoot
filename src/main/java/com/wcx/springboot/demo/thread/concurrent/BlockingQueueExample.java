@@ -44,7 +44,7 @@ public class BlockingQueueExample {
         new Thread(new NumbersProducer(queue, poisonPill, poisonPillPerProducer + mod)).start();
 
     }
-    //4. Multithreaded Producer-Consumer Example
+    //4. Multithreaded Producer-Consumer CounterExample
 
 
     /**

@@ -1,0 +1,14 @@
+9、a系统给b系统转100块钱，如何实现
+    A-100  B+100
+    如何保证数据一致性，性能优化，CAS锁
+    性能优化：
+        Transactional:
+        直接加注解，整个方法都占用连接，占用时间过长
+        编程式事务：部分代码块加事务，执行完连接释放，
+        B完成幂等性操作：表中加版本号
+
+1 数据一致性：幂等性
+    order加版本号  update order set status=true,version=version+1 where order_id=1 and version=0
+    多个线程同时调用，只会有一个成功
+2 悲观锁
+    select * for update

@@ -7,7 +7,11 @@ public interface VideoFileService {
 
     void delete(String id);
 
+    void delete(VideoFile videoFile);
+
     void update(VideoFile videoFile);
+
+    void updateUseMerge(VideoFile videoFile);
 
     List<VideoFile> query(String deviceId, String channelId, String startTime, String endTime);
 
