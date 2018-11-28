@@ -2,3 +2,7 @@
     docker image rm $(docker images -f 'dangling=true' -q)
 删除所有container
     docker container rm $(docker container ls -aq)
+推送到私有仓库
+    docker tag 0e5574283393 myregistryhost:5000/fedora/httpd:version1.0
+    0e5574283393 imageId
+    version1.0   版本号

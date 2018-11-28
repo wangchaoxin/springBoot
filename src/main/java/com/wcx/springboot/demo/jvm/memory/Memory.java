@@ -1,5 +1,6 @@
-package com.wcx.springboot.demo.jvm;
+package com.wcx.springboot.demo.jvm.memory;
 
+import com.wcx.springboot.demo.jvm.PrintMemoryUtil;
 import org.junit.Test;
 
 import java.nio.ByteBuffer;
