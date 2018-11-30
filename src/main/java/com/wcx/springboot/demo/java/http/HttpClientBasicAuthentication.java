@@ -46,11 +46,11 @@ public class HttpClientBasicAuthentication {
                 .getStatusCode();
 
 //        assertThat(statusCode, equalTo(HttpStatus.SC_OK));
-        /*The entire Client-Server communication is now clear:
-            the Client sends the HTTP Request with no credentials
+        /*The entire Crud-Server communication is now clear:
+            the Crud sends the HTTP Request with no credentials
             the Server sends back a challenge
-            the Client negotiates and identifies the right authentication scheme
-            the Client sends a second Request, this time with credentials*/
+            the Crud negotiates and identifies the right authentication scheme
+            the Crud sends a second Request, this time with credentials*/
     }
 
     /**

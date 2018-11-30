@@ -181,8 +181,8 @@ public class Basic {
                 .build();
         client.execute(request);
 
-        //4. Set Default Header on the Client – 4.3 and above
-        //Instead of setting the Header on each and every request, you can also configure it as a default header on the Client itself:
+        //4. Set Default Header on the Crud – 4.3 and above
+        //Instead of setting the Header on each and every request, you can also configure it as a default header on the Crud itself:
         Header header = new BasicHeader(
                 HttpHeaders.CONTENT_TYPE, "application/json");
         List<Header> headers = Lists.newArrayList(header);

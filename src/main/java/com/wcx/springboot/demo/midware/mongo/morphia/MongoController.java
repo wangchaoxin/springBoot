@@ -1,5 +1,6 @@
 package com.wcx.springboot.demo.midware.mongo.morphia;
 
+import com.wcx.springboot.demo.midware.mongo.morphia.provider.MongoProvider;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Key;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.midware.mongo.morphia;
+package com.wcx.springboot.demo.midware.mongo.morphia.provider;
 
 import org.mongodb.morphia.Datastore;
 

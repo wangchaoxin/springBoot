@@ -1,7 +1,7 @@
 package com.wcx.springboot.demo.midware.spring;
 
 import com.wcx.springboot.demo.midware.mongo.morphia.Employee;
-import com.wcx.springboot.demo.midware.mongo.morphia.MongoProvider;
+import com.wcx.springboot.demo.midware.mongo.morphia.provider.MongoProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mongodb.morphia.Datastore;
@@ -22,6 +22,7 @@ public class MorphiaTest {
         Datastore datastore = mongoProvider.getDatastore("test");
         final Employee elmer = new Employee("Elmer Fudd", 50000.0);
         Key<Employee> employeeKey = datastore.save(elmer);
+        long count = datastore.getCount(Employee.class);
         System.out.println("save success");
     }
 }
