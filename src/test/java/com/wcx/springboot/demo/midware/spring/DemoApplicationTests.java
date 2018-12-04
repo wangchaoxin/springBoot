@@ -17,7 +17,7 @@ public class DemoApplicationTests {
 
     @Test
     public void testMongo() {
-        System.out.println("test mongo");
+        System.out.println("testSoftReference mongo");
     }
 
 }

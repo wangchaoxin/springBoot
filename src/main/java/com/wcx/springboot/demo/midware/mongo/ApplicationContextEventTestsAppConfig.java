@@ -28,7 +28,7 @@ public class ApplicationContextEventTestsAppConfig extends AbstractMongoConfigur
 
     @Override
     protected String getDatabaseName() {
-        return "test";
+        return "testSoftReference";
     }
 }
 */

@@ -22,7 +22,7 @@ public class MongoApp {
 
     public static void main(String[] args) {
 
-        MongoOperations mongoOps = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient("192.168.64.2"), "test"));
+        MongoOperations mongoOps = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient("192.168.64.2"), "testSoftReference"));
 
         Person p = new Person("Joe", 34);
 

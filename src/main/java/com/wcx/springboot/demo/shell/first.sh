@@ -1,6 +1,6 @@
 #!/bin/bash 
 # comment 
-echo 'this is a test'
+echo 'this is a testSoftReference'
 
 #whether last command is excuted successfully  0 success
 echo $?  
@@ -23,18 +23,18 @@ dateParam=`date +%Y%m%d`
 echo $dateParam
 echo "dateParam2 $dateParam2"
 
-#test file or directory
+#testSoftReference file or directory
 test -e /wcx && echo "file exist"||echo "file not exist" #whether exist file
 test -f /wcx && echo "is a file" ||echo "not a file" #whether is a file
 test -d /wcx && echo "is a directory"||echo "not a directory" #whether is a directory
-# test number 
+# testSoftReference number
 test 1 -eq 2 && echo "1 euqal 2"||echo "1 not equal 2" #number equal
 test 1 -ne 2 && echo "1 not euqal 2"||echo "1 equal 2" #number not equal
 test 1 -gt 2 && echo "1 greater than 2"||echo "1 less than 2" #number greater than
 test 1 -lt 2 && echo "1 less than 2"||echo "1 less than 2" #number less than 
 test 1 -ge 2 && echo "1 greater than equal 2"||echo "1 less than equal 2" #number greater than equal
 test 1 -le 2 && echo "1 less than equal 2"||echo "1 greater than equal 2" #number less than equal 
-#test string
+#testSoftReference string
 test -z "" && echo "empty string" ||echo "not empty string"  #whether string is empty
 test -n "" && echo "not empty string" ||echo "empty string"  #whether string is not empty
 test "str1" = "str2" && echo "str1 equal str2" ||echo "str1 not equal str2"
@@ -73,7 +73,7 @@ fi
 #case: * represents default
 a="start"
 a="end"
-a="test"
+a="testSoftReference"
 case $a in 
 "start")
 	echo "start"

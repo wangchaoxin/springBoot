@@ -9,7 +9,7 @@ import org.apache.zookeeper.data.Stat;
 
 public class CrudExample {
 
-    public static final String PATH = "/test/curator";
+    public static final String PATH = "/testSoftReference/curator";
 
     public static void main(String[] args) throws Exception {
         //重试策略

@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.*;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -71,6 +68,17 @@ public class HttpUtil {
         } finally {
             response.close();
         }
+    }
+    public static String put(String url, Map<String, String> parameters) throws IOException {
+        if (StringUtils.isBlank(url)) {
+            return StringUtils.EMPTY;
+        }
+        HttpPut httpPut = new HttpPut(url);
+        httpPut.setHeader("Accept", "application/json");
+        httpPut.setHeader("Content-type", "application/json");
+        httpPut.setEntity(new StringEntity(JSON.toJSONString(parameters)));
+        CloseableHttpResponse response = httpclient.execute(httpPut);
+        return EntityUtils.toString(response.getEntity());
     }
 
     public static void main(String[] args) {

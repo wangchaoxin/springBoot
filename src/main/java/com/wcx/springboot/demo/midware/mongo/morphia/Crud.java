@@ -1,18 +1,18 @@
 package com.wcx.springboot.demo.midware.mongo.morphia;
 
-import com.mongodb.MongoClient;
-import com.mongodb.WriteResult;
-import com.wcx.springboot.demo.midware.mongo.morphia.service.VideoFile;
-import org.bson.types.ObjectId;
-import org.mongodb.morphia.Datastore;
-import org.mongodb.morphia.Morphia;
-import org.mongodb.morphia.query.FindOptions;
-import org.mongodb.morphia.query.Query;
-import org.mongodb.morphia.query.UpdateOperations;
-import org.mongodb.morphia.query.UpdateResults;
+        import com.mongodb.MongoClient;
+        import com.mongodb.WriteResult;
+        import com.wcx.springboot.demo.midware.mongo.morphia.service.VideoFile;
+        import org.bson.types.ObjectId;
+        import org.mongodb.morphia.Datastore;
+        import org.mongodb.morphia.Morphia;
+        import org.mongodb.morphia.query.FindOptions;
+        import org.mongodb.morphia.query.Query;
+        import org.mongodb.morphia.query.UpdateOperations;
+        import org.mongodb.morphia.query.UpdateResults;
 
-import java.util.ArrayList;
-import java.util.List;
+        import java.util.ArrayList;
+        import java.util.List;
 
 public class Crud {
     private Datastore datastore;
@@ -25,7 +25,7 @@ public class Crud {
         morphia.mapPackage("org.mongodb.morphia.example");
 
         // create the Datastore connecting to the default port on the local host
-        final Datastore datastore = morphia.createDatastore(new MongoClient("192.168.64.2", 27017), "test");
+        final Datastore datastore = morphia.createDatastore(new MongoClient("192.168.64.2", 27017), "testSoftReference");
         datastore.ensureIndexes();
         this.datastore = datastore;
         return datastore;

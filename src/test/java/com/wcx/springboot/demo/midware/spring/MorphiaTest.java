@@ -19,7 +19,7 @@ public class MorphiaTest {
 
     @Test
     public void save() {
-        Datastore datastore = mongoProvider.getDatastore("test");
+        Datastore datastore = mongoProvider.getDatastore("testSoftReference");
         final Employee elmer = new Employee("Elmer Fudd", 50000.0);
         Key<Employee> employeeKey = datastore.save(elmer);
         long count = datastore.getCount(Employee.class);

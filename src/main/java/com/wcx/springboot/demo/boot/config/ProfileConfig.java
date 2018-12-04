@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "my.test")  //注入my.test前缀的属性
+@ConfigurationProperties(prefix = "my.testSoftReference")  //注入my.test前缀的属性
 public class ProfileConfig {
     private String name;
 

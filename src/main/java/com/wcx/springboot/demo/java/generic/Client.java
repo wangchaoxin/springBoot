@@ -2,7 +2,7 @@ package com.wcx.springboot.demo.java.generic;
 
 public class Client {
     public static void main(String[] args) {
-        Box<String> box = new Box<>("test");
+        Box<String> box = new Box<>("testSoftReference");
         Box<Number> box1 = new Box<>(2);
 //        System.out.println(box.getData());
 

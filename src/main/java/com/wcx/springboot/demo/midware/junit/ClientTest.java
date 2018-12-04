@@ -7,7 +7,7 @@ public class ClientTest {
 
     /**
      * 每个方法执行的时候都执行
-     * Executed before each test. It is used to prepare the test environment (e.g., read input data, initialize the class).
+     * Executed before each testSoftReference. It is used to prepare the testSoftReference environment (e.g., read input data, initialize the class).
      */
     @Before
     public void before() {
@@ -15,7 +15,7 @@ public class ClientTest {
     }
 
     /**
-     * Executed after each test. It is used to cleanup the test environment (e.g., delete temporary data, restore defaults).
+     * Executed after each testSoftReference. It is used to cleanup the testSoftReference environment (e.g., delete temporary data, restore defaults).
      * It can also save memory by cleaning up expensive memory structures.
      */
     @After
@@ -43,8 +43,8 @@ public class ClientTest {
     }
 
     /**
-     * Marks that the test should be disabled. This is useful when the underlying code has been changed and the test case has not yet been adapted.
-     * Or if the execution time of this test is too long to be included. It is best practice to provide the optional description, why the test is disabled.
+     * Marks that the testSoftReference should be disabled. This is useful when the underlying code has been changed and the testSoftReference case has not yet been adapted.
+     * Or if the execution time of this testSoftReference is too long to be included. It is best practice to provide the optional description, why the testSoftReference is disabled.
      */
     @Test
     @Ignore("not used")
@@ -79,9 +79,9 @@ public class ClientTest {
 
 //        Assume.assumeFalse(System.getProperty("os.name").contains("Linux"));
         //Disabling tests
-        //Alternatively you can use Assume.assumeFalse or Assume.assumeTrue to define a condition for the test. Assume.assumeFalse marks the test as invalid, if its condition evaluates to true.
+        //Alternatively you can use Assume.assumeFalse or Assume.assumeTrue to define a condition for the testSoftReference. Assume.assumeFalse marks the testSoftReference as invalid, if its condition evaluates to true.
         Assume.assumeFalse(System.getProperty("os.name").toLowerCase().contains("windows"));
-        System.out.println("test");
+        System.out.println("testSoftReference");
         //各种assert
         Assert.assertEquals(1, 2);
         Assert.assertNotNull(1);
@@ -95,9 +95,9 @@ public class ClientTest {
     }
 
     //命名规范
-    //One possible convention is to use the "should" in the test method name.
+    //One possible convention is to use the "should" in the testSoftReference method name.
     // For example, "ordersShouldBeCreated" or "menuShouldGetActive".
-    // This gives a hint what should happen if the test method is executed.
+    // This gives a hint what should happen if the testSoftReference method is executed.
     public void orderShouldNotBeNull() {
 
     }

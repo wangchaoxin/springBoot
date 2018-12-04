@@ -18,7 +18,7 @@ public class VideoFileServiceImpl implements VideoFileService {
     public VideoFileServiceImpl() {
         final Morphia morphia = new Morphia();
         morphia.mapPackage("org.mongodb.morphia.example");
-        final Datastore datastore = morphia.createDatastore(new MongoClient("192.168.64.2", 27017), "test");
+        final Datastore datastore = morphia.createDatastore(new MongoClient("192.168.64.2", 27017), "testSoftReference");
         datastore.ensureIndexes();
     }
 

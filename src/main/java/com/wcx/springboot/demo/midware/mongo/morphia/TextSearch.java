@@ -18,7 +18,7 @@ import java.util.List;
  * <p>
  * The $** value tells MongoDB to create a text index on all the text fields in a document.
  * A more targeted index can be created, if desired, by explicitly listing which fields to index.
- * Once the index is defined, we can start querying against it like this test does:
+ * Once the index is defined, we can start querying against it like this testSoftReference does:
  */
 @Indexes(@Index(fields = @Field(value = "$**", type = IndexType.TEXT)))
 public class TextSearch {
@@ -36,11 +36,11 @@ public class TextSearch {
     /**
      * The $** value tells MongoDB to create a text index on all the text fields in a document.
      * A more targeted index can be created, if desired, by explicitly listing which fields to index.
-     * Once the index is defined, we can start querying against it like this test does:
+     * Once the index is defined, we can start querying against it like this testSoftReference does:
      * @param args
      */
     public static void main(String[] args) {
-        //As you can see here, we create Greeting objects for multiple languages. In our test query,
+        //As you can see here, we create Greeting objects for multiple languages. In our testSoftReference query,
         // we’re looking for occurrences of the word “good” in any document. We created four such documents
         // and our query returns exactly those four.
         Datastore datastore = new Crud().getDatastore();

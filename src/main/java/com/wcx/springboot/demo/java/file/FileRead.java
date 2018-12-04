@@ -23,7 +23,7 @@ public class FileRead {
     private static void read1() throws IOException {
         // We need to provide file path as the parameter:
         // double backquote is to avoid compiler interpret words
-        // like \test as \t (ie. as a escape sequence)
+        // like \testSoftReference as \t (ie. as a escape sequence)
         File file = new File(FILE_PATH);
 
         BufferedReader br = new BufferedReader(new FileReader(file));

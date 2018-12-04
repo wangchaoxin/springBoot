@@ -3,12 +3,10 @@ package com.wcx.springboot.demo.jvm.memory;
 import com.wcx.springboot.demo.jvm.PrintMemoryUtil;
 import org.junit.Test;
 
-import java.nio.ByteBuffer;
-
 /**
  *  -XX:+PrintGCDetails -Xmx10m -Xms5m  -Xmn1m -XX:SurvivorRatio=2 -XX:+PrintGCDetails
  */
-public class Memory {
+public class HeapMemory {
     public static void main(String[] args) {
 //        test1();
 //        test2();
@@ -47,15 +45,6 @@ public class Memory {
         //分配4m
         byte[] b2 = new byte[4 * 1024 * 1024];
         PrintMemoryUtil.printMemory();
-    }
-
-    /**
-     * 直接堆内存溢出
-      */
-    private static void test4(){
-        for (int i = 0; i < 1000; i++) {
-            ByteBuffer.allocate(1024 * 1024);
-        }
     }
     @Test
     public  void testString(){

@@ -12,7 +12,7 @@ public class GsonTest {
 
     public static void testGson(){
         Gson gson=new Gson();
-        String json="{\"code\": 200, \"serviceId\": \"device.ndjbjhg\", \"requestId\": \"test-abcd\", \"type\": \"device-service\", \"action\": \"add-device\", \"body\": \"\" }";
+        String json="{\"code\": 200, \"serviceId\": \"device.ndjbjhg\", \"requestId\": \"testSoftReference-abcd\", \"type\": \"device-service\", \"action\": \"add-device\", \"body\": \"\" }";
 
         /*转换到实体*/
         MqResponse mqResponse = gson.fromJson(json, MqResponse.class);

@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
  * 异步接口
  */
 public class AsyncExample {
-    public static final String PATH = "/test/curator";
+    public static final String PATH = "/testSoftReference/curator";
     String s = "{\"name\":\"wang\"}";
     private static ExecutorService executorService = Executors.newFixedThreadPool(2);
 

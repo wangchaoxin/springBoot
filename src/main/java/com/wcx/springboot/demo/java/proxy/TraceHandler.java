@@ -29,7 +29,7 @@ public class TraceHandler implements InvocationHandler {
         Class<?>[] interfaces = a.getClass().getInterfaces();
         Object proxy = Proxy.newProxyInstance(null, interfaces, traceHandler);
         if (proxy instanceof IA) {
-            ((IA) proxy).print("test");
+            ((IA) proxy).print("testSoftReference");
         }
     }
 }

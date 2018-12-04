@@ -12,7 +12,7 @@ public class BarrierExample {
     //所有线程都准备好才执行的逻辑,只能存在于同一个JVM
     public static CyclicBarrier barrier = new CyclicBarrier(3);
 
-    public static final String BARRIER_PATH = "/test/curator/barrier";
+    public static final String BARRIER_PATH = "/testSoftReference/curator/barrier";
 
     static DistributedBarrier distributedBarrier;
 

@@ -31,7 +31,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }
 
-//Adding a test system property
+//Adding a testSoftReference system property
 test {
     systemProperties 'property': 'value'
 }

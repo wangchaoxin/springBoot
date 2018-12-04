@@ -11,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
  * 分布式锁：为了保证数据一致性，在某个运行点（减库操作，流水号生成）需要同步控制
  */
 public class LockExample {
-    private static final String LOCK_PATH = "/test/curator/lock";
+    private static final String LOCK_PATH = "/testSoftReference/curator/lock";
 
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(1);

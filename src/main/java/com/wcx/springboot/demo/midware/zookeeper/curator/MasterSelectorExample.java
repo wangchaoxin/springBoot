@@ -10,7 +10,7 @@ import org.apache.curator.framework.state.ConnectionState;
  */
 public class MasterSelectorExample {
     //master选举的跟节点，本次master选举在该节点下进行
-    private static final String MASTER_PATH = "/test/curator/master_path";
+    private static final String MASTER_PATH = "/testSoftReference/curator/master_path";
 
     public static void main(String[] args) throws InterruptedException {
         CuratorFramework client = ClientFactory.getClient();

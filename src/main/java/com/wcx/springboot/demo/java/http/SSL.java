@@ -39,7 +39,7 @@ public class SSL {
 
         /**
          * 2. The SSLPeerUnverifiedException
-         * Without configuring SSL with the HttpClient, the following test – consuming an HTTPS URL – will fail:
+         * Without configuring SSL with the HttpClient, the following testSoftReference – consuming an HTTPS URL – will fail:
          * The javax.net.ssl.SSLPeerUnverifiedException exception occurs whenever a valid chain of trust couldn’t be established for the URL.
          * @throws ClientProtocolException
          * @throws IOException
@@ -67,7 +67,7 @@ public class SSL {
         public void givenAcceptingAllCertificates_whenHttpsUrlIsConsumed_thenException()
                 throws IOException, GeneralSecurityException {
             //With the new TrustStrategy now overriding the standard certificate verification process (which should consult a configured trust manager) –
-            // the test now passes and the client is able to consume the HTTPS URL.
+            // the testSoftReference now passes and the client is able to consume the HTTPS URL.
             TrustStrategy acceptingTrustStrategy = (cert, authType) -> true;
             SSLSocketFactory sf = new SSLSocketFactory(
                     acceptingTrustStrategy, ALLOW_ALL_HOSTNAME_VERIFIER);
@@ -88,7 +88,7 @@ public class SSL {
         /**
          * 4. The Spring RestTemplate with SSL (HttpClient < 4.3)
          * Now that we have seen how to configure a raw HttpClient with SSL support, let’s take a look at a higher level client – the Spring RestTemplate.
-         * With no SSL configured, the following test fails as expected:
+         * With no SSL configured, the following testSoftReference fails as expected:
          */
         @Test(expected = ResourceAccessException.class)
         public void whenHttpsUrlIsConsumed_thenException1() {

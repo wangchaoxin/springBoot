@@ -16,7 +16,7 @@ public class ListenerExample {
 
     private static Logger logger = LoggerFactory.getLogger(ListenerExample.class);
 
-    public static final String PATH = "/test/curator/listener";
+    public static final String PATH = "/testSoftReference/curator/listener";
 
     public static void main(String[] args) throws Exception {
         CuratorFramework client = ClientFactory.getClient();

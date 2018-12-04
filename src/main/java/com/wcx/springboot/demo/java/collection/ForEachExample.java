@@ -53,7 +53,7 @@ public class ForEachExample {
             test(Arrays.asList(1, 2, 3));
             String[] strings = { "A", "B", "C" };
             // An array works in foreach, but it’s not Iterable:
-            //! test(strings);
+            //! testSoftReference(strings);
             // You must explicitly convert it to an Iterable:
             //Trying to pass an array as an Iterable argument fails. There is no automatic conversion to
             //an Iterable; you must do it by hand

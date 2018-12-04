@@ -35,7 +35,7 @@ public class AppConfig {
      */
     public @Bean
     MongoDbFactory mongoDbFactory() {
-        return new SimpleMongoDbFactory(new MongoClient(host), "test");
+        return new SimpleMongoDbFactory(new MongoClient(host), "testSoftReference");
     }
 
     /**
@@ -43,10 +43,10 @@ public class AppConfig {
      * @return
      */
     public @Bean MongoTemplate mongoTemplate() {
-        return new MongoTemplate(mongoClient(), "test");
+        return new MongoTemplate(mongoClient(), "testSoftReference");
     }
 
     public static void main(String[] args) {
-        MongoOperations mongoOps = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient("192.168.64.2"), "test"));
+        MongoOperations mongoOps = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient("192.168.64.2"), "testSoftReference"));
     }
 }

@@ -54,7 +54,7 @@ public class MongoDataTest {
     }
 
     /**
-     * repository test
+     * repository testSoftReference
      */
     @Test
     public void testFindRepository() {

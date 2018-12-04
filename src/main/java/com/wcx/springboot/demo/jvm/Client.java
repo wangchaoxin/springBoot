@@ -1,5 +1,7 @@
 package com.wcx.springboot.demo.jvm;
 
+import com.wcx.springboot.demo.jvm.memory.SoftRefrence;
+
 public class Client {
 
     private static int count = 0;
@@ -28,6 +30,8 @@ public class Client {
 //        maxMemory(args[0]);
         try {
 //            recursion();
+//            new SoftRefrence().testSoftReference();
+            new SoftRefrence().testWeakRefrence();
         } catch (Throwable e) {
             System.gc();
             System.out.println("最大调用次数:"+count);

@@ -6,7 +6,7 @@ import org.junit.runner.notification.Failure;
 
 /**
  * 执行某几个测试类
- * Run your test from the command line
+ * Run your testSoftReference from the command line
  */
 public class MyTestRunner {
     public static void main(String[] args) {

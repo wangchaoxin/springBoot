@@ -59,7 +59,7 @@ public class PostMethod {
         CloseableHttpClient client = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost("http://www.example.com");
 
-        httpPost.setEntity(new StringEntity("test post"));
+        httpPost.setEntity(new StringEntity("testSoftReference post"));
         UsernamePasswordCredentials creds
                 = new UsernamePasswordCredentials("John", "pass");
         httpPost.addHeader(new BasicScheme().authenticate(creds, httpPost, null));
@@ -122,7 +122,7 @@ public class PostMethod {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
         builder.addTextBody("username", "John");
         builder.addTextBody("password", "pass");
-        builder.addBinaryBody("file", new File("test.txt"),
+        builder.addBinaryBody("file", new File("testSoftReference.txt"),
                 ContentType.APPLICATION_OCTET_STREAM, "file.ext");
 
         HttpEntity multipart = builder.build();
@@ -144,7 +144,7 @@ public class PostMethod {
         CloseableHttpClient client = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost("http://www.example.com");
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-        builder.addBinaryBody("file", new File("test.txt"),
+        builder.addBinaryBody("file", new File("testSoftReference.txt"),
                 ContentType.APPLICATION_OCTET_STREAM, "file.ext");
         HttpEntity multipart = builder.build();
 

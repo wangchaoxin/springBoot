@@ -20,7 +20,7 @@ public class MongoController {
 
     @RequestMapping
     public void save() {
-        Datastore datastore = mongoProvider.getDatastore("test-mongo");
+        Datastore datastore = mongoProvider.getDatastore("testSoftReference-mongo");
         final Employee elmer = new Employee("Elmer Fudd", 50000.0);
         Key<Employee> employeeKey = datastore.save(elmer);
         logger.info("save success");

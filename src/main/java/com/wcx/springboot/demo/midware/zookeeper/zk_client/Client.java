@@ -18,13 +18,13 @@ public class Client {
             ZkClient zkClient = new ZkClient("192.168.64.2:2181", 5000);
 
             //递归创建节点，原生不支持
-            zkClient.createPersistent("/test/c1", true);
+            zkClient.createPersistent("/testSoftReference/c1", true);
 
             //自动完成逐层遍历删除节点的工作，原生有子节点不能删除
-            //boolean b = zkClient.deleteRecursive("/test/c1");
+            //boolean b = zkClient.deleteRecursive("/testSoftReference/c1");
 
             //返回子节点的相对路径  c1  c2
-            List<String> children = zkClient.getChildren("/test");
+            List<String> children = zkClient.getChildren("/testSoftReference");
 
             //监听子节点变化
             //listenChild(zkClient);

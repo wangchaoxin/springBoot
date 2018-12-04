@@ -17,8 +17,8 @@ public class RedisController {
     @RequestMapping("get")
     public void redis() {
         StringRedisTemplate stringRedisTemplate = redisProvider.getTemplate();
-        String key = "key-test";
-        String value = "value-test";
+        String key = "key-testSoftReference";
+        String value = "value-testSoftReference";
 
         valueOperation(stringRedisTemplate, key, value);
 //        hashOperation(stringRedisTemplate, key, value);
