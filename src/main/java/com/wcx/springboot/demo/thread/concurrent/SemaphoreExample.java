@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.IntStream;
 
 import static org.junit.Assert.*;
@@ -141,5 +143,9 @@ public class SemaphoreExample {
         executorService.shutdown();
         Thread.sleep(Integer.MAX_VALUE);
 //        assertTrue(counter.hasQueuedThreads());
+    }
+    public void test() {
+        //设置是否是公平锁
+        Lock lock = new ReentrantLock(true);
     }
 }

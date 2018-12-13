@@ -35,7 +35,6 @@ public class CollectionExample {
         }
 
 
-
         //3.LinkedList
         //LinkedList also adds methods that allow it to be used as a stack, a Queue or a doubleended queue (deque).
         LinkedList<Animal> pets =
@@ -64,10 +63,15 @@ public class CollectionExample {
 
         //4.Stack
         Stack<String> stack = new Stack<String>();
-        for(String s : "My dog has fleas".split(" "))
+        for (String s : "My dog has fleas".split(" "))
             stack.push(s);
-        while(!stack.empty())
+        while (!stack.empty())
             System.out.print(stack.pop() + " ");
+
+        //5.空的list,set,map
+        List<Object> list1 = Collections.EMPTY_LIST;
+        Map<String,Object> map = Collections.EMPTY_MAP;
+        Set emptySet = Collections.EMPTY_SET;
 
     }
 

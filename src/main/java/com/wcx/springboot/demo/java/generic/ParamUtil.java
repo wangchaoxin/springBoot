@@ -7,12 +7,16 @@ public class ParamUtil {
      * @param <T>
      * @return
      */
-    public <T extends Number>  boolean isValueGtZero(T... params) {
+    public static  <T extends Number>  boolean isValueGtZero(T... params) {
         for (T param : params) {
             if (param.doubleValue()< 0) {
                 return false;
             }
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        isValueGtZero(1, 2, 3);
     }
 }
