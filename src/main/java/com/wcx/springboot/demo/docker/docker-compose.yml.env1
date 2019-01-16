@@ -1,0 +1,53 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3.7.4-management-alpine
+    restart: unless-stopped
+    hostname: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=vmsmquser
+      - RABBITMQ_DEFAULT_PASS=vmsmqpassword
+      - RABBITMQ_DEFAULT_VHOST=/ivh 
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+        - ./data/rabbitmq:/data/lib/rabbitmq
+  mongo:
+    image: mongo:jessie
+    restart: unless-stopped
+    ports:
+        - "27017:27017"
+    labels:
+        - "traefik.enable=false"
+    volumes:
+        - ./data/mongodb:/data/db
+  zookeeper:
+    image: zookeeper:latest
+    restart: unless-stopped
+    ports:
+        - "2181:2181"
+    volumes:
+        - ./data/zookeeper/data:/data
+        - ./data/zookeeper/datalog:/datalog
+  redis:
+    image: redis:latest
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis_data:/data"
+    restart: unless-stopped
+    hostname: redis
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"

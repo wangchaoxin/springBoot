@@ -1,6 +1,6 @@
-package com.wcx.springboot.demo.java8.lamda;
+package com.wcx.springboot.demo.java8.basic.lamda;
 
-import com.wcx.springboot.demo.java8.fuctional_interface.CustomFunctionalInterface;
+import com.wcx.springboot.demo.java8.basic.fuctional_interface.CustomFunctionalInterface;
 
 public class Client {
     public static void main(String[] args) {

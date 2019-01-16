@@ -1,0 +1,22 @@
+Working with streams
+To summarize, working with streams in general involves three items:
+     A data source (such as a collection) to perform a query on
+     A chain of intermediate operations that form a stream pipeline
+     A terminal operation that executes the stream pipeline and produces a result
+Terminal operations such as forEach and count return a nonstream value and process a stream
+pipeline to return a result.
+
+Intermediate operations
+    Operation Type Return type Argument of the operation Functiondescriptor
+    filter         Intermediate Stream<T> Predicate<T> T -> boolean
+    map            Intermediate Stream<R> Function<T, R> T -> R
+    limit          Intermediate Stream<T>
+    sorted         Intermediate Stream<T> Comparator<T> (T, T) -> int
+    distinct       Intermediate Stream<T>
+
+
+Terminal operations
+    Operation Type Purpose
+    forEach    Terminal Consumes each element from a stream and applies a lambda to each of them.The operation returns void.
+    count     Terminal Returns the number of elements in a stream. The operation returns a long.
+    collect      Terminal Reduces the stream to create a collection such as a List, a Map, or even an  Integer.

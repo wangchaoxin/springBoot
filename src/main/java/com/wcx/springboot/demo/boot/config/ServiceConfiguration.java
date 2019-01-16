@@ -23,6 +23,4 @@ public class ServiceConfiguration {
     UserService getUserService() {
         return new UserServiceImpl();
     }
-
-
 }

@@ -1,4 +1,4 @@
-package com.wcx.springboot.demo.java8.fuctional_interface;
+package com.wcx.springboot.demo.java8.basic.fuctional_interface;
 
 /**
  * define: 只含有一个接口的接口

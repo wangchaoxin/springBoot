@@ -3,8 +3,11 @@ package com.wcx.springboot.demo.midware.json.gson;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import org.junit.Test;
 
+import java.lang.reflect.Type;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class GsonTest {
@@ -30,6 +33,11 @@ public class GsonTest {
 
         /*将enum转换成json **/
         String enumJson = gson.toJson(ApiResponse.FAIL);
+
+        /*将字符串转换成map*/
+        Type type = new TypeToken<Map<String, String>>(){}.getType();
+        Map<String, String> myMap = gson.fromJson("{'k1':'apple','k2':'orange'}", type);
+        System.out.println(myMap);
 
     }
 

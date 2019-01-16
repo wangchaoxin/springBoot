@@ -132,10 +132,11 @@ dependencies {
     compile group: 'org.apache.httpcomponents', name: 'httpasyncclient', version: '4.1.4'
     //file utils
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    //jedis
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
 
-
-
-
+    //commons-io
+//    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
 
 
 }

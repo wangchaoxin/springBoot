@@ -2,11 +2,9 @@ package com.wcx.springboot.demo.midware.json.fastjson.readfromfile;
 
 import com.alibaba.fastjson.JSONReader;
 import com.alibaba.fastjson.JSONWriter;
+import org.apache.commons.io.IOUtils;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -81,5 +79,15 @@ public class Example {
         }
         reader.endObject();
         reader.close();
+    }
+
+    /**
+     * 读取数据对象object
+     */
+    public static void test5() throws IOException {
+        InputStream inputStream = new FileInputStream("config/billtype.conf.json");
+        String text = IOUtils.toString(inputStream,"utf8");
+//        Root root = JSON.parseObject(text,Root.class);
+
     }
 }
