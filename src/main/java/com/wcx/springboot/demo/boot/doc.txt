@@ -6,3 +6,13 @@ springboot cli
     可以创建springboot项目
 spring initializr
     http://start.spring.io
+THE ACTUATOR
+    the Actuator instead offers the ability to inspect the internals of your application at runtime
+    What beans have been configured in the Spring application context
+    ■ What decisions were made by Spring Boot’s auto-configuration
+    ■ What environment variables, system properties, configuration properties, and
+    command-line arguments are available to your application
+    ■ The current state of the threads in and supporting your application
+    ■ A trace of recent HTTP requests handled by your application
+    ■ Various metrics pertaining to memory usage, garbage collection, web requests,
+    and data source usage
