@@ -19,7 +19,6 @@ public class CrudExample {
         CuratorFramework client = CuratorFrameworkFactory.newClient("192.168.64.2:2181", 5000, 3000, retryPolicy);
         //调用start完成创建
         client.start();
-
         //创建节点
         //createNode(client);
 

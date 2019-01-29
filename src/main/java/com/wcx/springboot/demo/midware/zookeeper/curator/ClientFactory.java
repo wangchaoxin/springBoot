@@ -13,7 +13,7 @@ public class ClientFactory {
 
     private static Map<String, CuratorFramework> table = new Hashtable<>();
 
-    static CuratorFramework getClient() {
+    public static CuratorFramework getClient() {
         RetryPolicy retryPolicy = new ExponentialBackoffRetry(3000, 3);
 //        CuratorFramework client = CuratorFrameworkFactory.newClient("192.168.64.2:2181", 5000, 3000, retryPolicy);
 
@@ -25,7 +25,7 @@ public class ClientFactory {
         return client;
     }
 
-    static CuratorFramework getClient(String key) {
+   public static CuratorFramework getClient(String key) {
         if (table.get(key) != null && table.get(key).getState() != CuratorFrameworkState.STOPPED) {
             return table.get(key);
         }

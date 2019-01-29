@@ -20,16 +20,30 @@ public class Crud {
         //2.lists
         jedis.lpush("queue#tasks", "firstTask");
         jedis.lpush("queue#tasks", "secondTask");
+        //删除元素
+        /*count > 0: Remove elements equal to value moving from head to tail.
+        count < 0: Remove elements equal to value moving from tail to head.
+        count = 0: Remove all elements equal to value.
+        For example, LREM list -2 "hello" will remove the last two occurrences of "hello" in the list stored at list.
+        Return value
+        Integer reply: the number of removed elements.*/
+        jedis.lrem("key", 0, "value");
         String task = jedis.rpop("queue#tasks");
         //3.sets
         jedis.sadd("nicknames", "nickname#1");
         jedis.sadd("nicknames", "nickname#2");
         jedis.sadd("nicknames", "nickname#1");
-
+        //3.1 remove 元素
+        /*Return value
+        Integer reply: the number of members that were removed from the set, not including non existing members.
+        jedis.srem("key", "value");
+        */
         Set<String> nicknames = jedis.smembers("nicknames");
         boolean exists = jedis.sismember("nicknames", "nickname#1");
-        //4.hashes
 
+
+
+        //4.hashes
         jedis.hset("user#1", "name", "Peter");
         jedis.hset("user#1", "job", "politician");
 

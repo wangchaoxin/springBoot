@@ -1,5 +1,6 @@
-package com.wcx.springboot.demo.midware.zookeeper.curator;
+package com.wcx.springboot.demo.midware.zookeeper.curator.leader;
 
+import com.wcx.springboot.demo.midware.zookeeper.curator.ClientFactory;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.leader.LeaderSelector;
 import org.apache.curator.framework.recipes.leader.LeaderSelectorListener;
