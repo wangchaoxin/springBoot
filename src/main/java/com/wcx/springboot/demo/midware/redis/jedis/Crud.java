@@ -12,7 +12,13 @@ public class Crud {
     public static final String HOST = "192.168.64.2";
 
     public static void main(String[] args) {
+
+        //jedis需要connect一下才能连接成功
         Jedis jedis = new Jedis(HOST);
+        jedis.connect();
+        if (jedis.isConnected()) {
+            System.out.println("jedis connected");
+        }
         //1.strings
         jedis.set("events/city/rome", "32,15,223,828");
         String cachedResponse = jedis.get("events/city/rome");
@@ -40,7 +46,6 @@ public class Crud {
         */
         Set<String> nicknames = jedis.smembers("nicknames");
         boolean exists = jedis.sismember("nicknames", "nickname#1");
-
 
 
         //4.hashes
@@ -102,11 +107,12 @@ public class Crud {
         // it will auto-discover the rest of the instances in the cluster.
         try (JedisCluster jedisCluster = new JedisCluster(new HostAndPort("localhost", 6379))) {
             // use the jedisCluster resource as if it was a normal Jedis resource
-        } catch (IOException e) {}
-
+        } catch (IOException e) {
+        }
 
 
     }
+
     private static JedisPoolConfig buildPoolConfig() {
         final JedisPoolConfig poolConfig = new JedisPoolConfig();
         poolConfig.setMaxTotal(128);

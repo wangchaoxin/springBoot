@@ -1,7 +1,13 @@
 package com.wcx.springboot.demo.midware.junit;
 
 import org.junit.*;
+import org.junit.runners.MethodSorters;
 
+//指定测试按照顺序执行：
+//Deterministic, based on hashcode. This is the default order.
+//Ascending by method name
+//JVM order. This more or less returns random order.
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ClientTest {
 
 
