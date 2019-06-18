@@ -1,9 +1,8 @@
 package com.wcx.springboot.demo.midware.json.gson.excludefield;
 
-import com.google.gson.ExclusionStrategy;
-import com.google.gson.FieldAttributes;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
+
+import java.util.HashMap;
 
 public class Example {
     public static void main(String[] args) {
@@ -11,6 +10,8 @@ public class Example {
         MyClass source = new MyClass(1L, "foo", "bar", subclass);
 
         System.out.println(new Gson().toJson(source));
+        System.out.println(new Gson().toJson(new HashMap<>()));
+        System.out.println(new Gson().toJson(new Test()));
         //3. Transient Modifier
         //While this is very fast, it also comes with a severe downside: every serialization tool will take transient into account, not only Gson.
         //4. @Expose Annotation
@@ -52,6 +53,9 @@ public class Example {
 
             @Override
             public boolean shouldSkipClass(Class<?> clazz) {
+//                if (clazz == Test.class) {
+//                    return true;
+//                }
                 return false;
             }
         };
@@ -105,5 +109,14 @@ public class Example {
                 Always:
                 Gson gson = new GsonBuilder().setExclusionStrategies(strategy);
         * */
+    }
+    @org.junit.Test
+    public void test() {
+        Gson gson = new GsonBuilder()
+                .disableHtmlEscaping()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .create();
+        System.out.println(gson.toJson(null));
     }
 }

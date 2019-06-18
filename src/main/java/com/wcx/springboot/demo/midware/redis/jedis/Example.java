@@ -2,7 +2,6 @@ package com.wcx.springboot.demo.midware.redis.jedis;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 
 import java.util.Set;
 
@@ -17,7 +16,8 @@ public class Example {
         String value = jedisSingle.get("foo");
 
         //2.多线程环境下使用redispool,单独的jedis实例不是线程安全的
-        JedisPool pool = new JedisPool(new JedisPoolConfig(), HOST);
+//        JedisPool pool = new JedisPool(new JedisPoolConfig(), HOST);
+        JedisPool pool = new JedisPool( HOST,6379);
 
         /// Jedis implements Closeable. Hence, the jedis instance will be auto-closed after the last statement.
         try (Jedis jedis = pool.getResource()) {

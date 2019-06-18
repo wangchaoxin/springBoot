@@ -1,5 +1,8 @@
 package com.wcx.springboot.demo.java.util;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegexUtil {
 
     /**
@@ -11,6 +14,13 @@ public class RegexUtil {
     public static boolean isConsistOfNumber(String s) {
         String regex = "\\d+";
         return s.matches(regex);
+    }
+    public void test() {
+        Pattern pattern = Pattern.compile("");
+        Matcher matcher = pattern.matcher("");
+        if (matcher.matches()) {
+
+        }
     }
 
 

@@ -136,6 +136,10 @@ dependencies {
     //jedis
     compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
 
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    compile group: 'com.google.guava', name: 'guava', version: '27.1-jre'
+
+
     //commons-io
 //    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
 
