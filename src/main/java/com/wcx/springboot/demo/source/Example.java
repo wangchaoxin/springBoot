@@ -61,6 +61,19 @@ public class Example {
         List<Person> people1 = Arrays.asList(people);
         //获取环境变量
         String property = System.getProperty("ConnectionStateManagerSize", null);
+        //=号返回最左边表达式,可以简写
+        Object e;
+        Object e1 = new Object();
+        if ((e = e1) != null) {
+
+        }
+
+        //shutdown hook ，在程序结束之前执行一些操作
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            public void run() {
+                System.out.println("shutdown the app");
+            }
+        });
 
         //switch case
         int qty = 0;
@@ -71,10 +84,12 @@ public class Example {
             case 1: {
                 return null;
             }
+            //default 可以默认抛出异常
             default: {
                 throw new IllegalStateException("More than 1 auth has been added");
             }
         }
+
 
     }
 
@@ -90,6 +105,7 @@ public class Example {
             now = System.currentTimeMillis() - base;
         }
     }
+
 
     private enum State {
         LATENT,
